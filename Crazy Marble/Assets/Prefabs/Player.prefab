@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 8618205891522460862}
   - component: {fileID: 8618205891522460863}
   - component: {fileID: 8618205891522460861}
+  - component: {fileID: 1422273363}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -161,3 +162,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputDirection: {x: 0, y: 0}
   <RotationPower>k__BackingField: 5
+--- !u!114 &1422273363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8618205891522460856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79d13676ad30124a89a9276b0f880ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _respawnTime: 1.44
+  _outOfBoundsDeathRange: 10
+  <OnDeath>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
