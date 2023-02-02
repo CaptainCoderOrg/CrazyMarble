@@ -46,6 +46,15 @@ namespace CrazyMarble.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Boost"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb128415-4a3a-4b0d-b30a-f185f54fba15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -165,7 +174,7 @@ namespace CrazyMarble.Input
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -176,7 +185,7 @@ namespace CrazyMarble.Input
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Hop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -187,8 +196,30 @@ namespace CrazyMarble.Input
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Hop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""715e3766-2ca9-4c94-9005-96833b30402d"",
+                    ""path"": ""<Mouse>/backButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Boost"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84804905-72dc-4bb5-9c11-c3115eece6ff"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Boost"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -229,6 +260,7 @@ namespace CrazyMarble.Input
             m_MarbleControls = asset.FindActionMap("Marble Controls", throwIfNotFound: true);
             m_MarbleControls_Movement = m_MarbleControls.FindAction("Movement", throwIfNotFound: true);
             m_MarbleControls_Hop = m_MarbleControls.FindAction("Hop", throwIfNotFound: true);
+            m_MarbleControls_Boost = m_MarbleControls.FindAction("Boost", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -290,12 +322,14 @@ namespace CrazyMarble.Input
         private IMarbleControlsActions m_MarbleControlsActionsCallbackInterface;
         private readonly InputAction m_MarbleControls_Movement;
         private readonly InputAction m_MarbleControls_Hop;
+        private readonly InputAction m_MarbleControls_Boost;
         public struct MarbleControlsActions
         {
             private @MarbleInputs m_Wrapper;
             public MarbleControlsActions(@MarbleInputs wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_MarbleControls_Movement;
             public InputAction @Hop => m_Wrapper.m_MarbleControls_Hop;
+            public InputAction @Boost => m_Wrapper.m_MarbleControls_Boost;
             public InputActionMap Get() { return m_Wrapper.m_MarbleControls; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -311,6 +345,9 @@ namespace CrazyMarble.Input
                     @Hop.started -= m_Wrapper.m_MarbleControlsActionsCallbackInterface.OnHop;
                     @Hop.performed -= m_Wrapper.m_MarbleControlsActionsCallbackInterface.OnHop;
                     @Hop.canceled -= m_Wrapper.m_MarbleControlsActionsCallbackInterface.OnHop;
+                    @Boost.started -= m_Wrapper.m_MarbleControlsActionsCallbackInterface.OnBoost;
+                    @Boost.performed -= m_Wrapper.m_MarbleControlsActionsCallbackInterface.OnBoost;
+                    @Boost.canceled -= m_Wrapper.m_MarbleControlsActionsCallbackInterface.OnBoost;
                 }
                 m_Wrapper.m_MarbleControlsActionsCallbackInterface = instance;
                 if (instance != null)
@@ -321,6 +358,9 @@ namespace CrazyMarble.Input
                     @Hop.started += instance.OnHop;
                     @Hop.performed += instance.OnHop;
                     @Hop.canceled += instance.OnHop;
+                    @Boost.started += instance.OnBoost;
+                    @Boost.performed += instance.OnBoost;
+                    @Boost.canceled += instance.OnBoost;
                 }
             }
         }
@@ -347,6 +387,7 @@ namespace CrazyMarble.Input
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnHop(InputAction.CallbackContext context);
+            void OnBoost(InputAction.CallbackContext context);
         }
     }
 }
