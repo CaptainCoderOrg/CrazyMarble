@@ -26,6 +26,21 @@ public class MarbleController : MonoBehaviour
     
     [field: SerializeField]
     public float RotationPower { get; private set; } = 5f;
+    [field: SerializeReference]
+    public float JumpPower { get; private set; } = 5f;
+
+    public float _jumpDistance = .55f;
+
+    public bool IsOnGround
+    {
+        get
+        {
+            RaycastHit hitInfo;
+            bool isHit = Physics.Raycast(transform.position, Vector3.down, out hitInfo, _jumpDistance);
+            // Debug.DrawRay(transform.position, Vector3.down * _jumpDistance, Color.red, 5);
+            return isHit;
+        }
+    }
 
     public void ApplyDirectionalForce(Vector3 direction)
     {
@@ -36,6 +51,7 @@ public class MarbleController : MonoBehaviour
     {
         MarbleInputs.MarbleControls.Movement.performed += HandleMovement;
         MarbleInputs.MarbleControls.Movement.canceled += StopMovement;
+        MarbleInputs.MarbleControls.Hop.started += HandleHop;
         _rigidBody = GetComponent<Rigidbody>();
     }
 
@@ -56,4 +72,12 @@ public class MarbleController : MonoBehaviour
 
     private void HandleMovement(CallbackContext context) => _inputDirection = context.ReadValue<Vector2>();
     private void StopMovement(CallbackContext context) => _inputDirection = Vector2.zero;
+    private void HandleHop(CallbackContext context)
+    {
+        if (!IsOnGround) { return; }
+        Vector3 velocity = _rigidBody.velocity;
+        velocity.y = 0;
+        _rigidBody.velocity = velocity;
+        _rigidBody.AddForce(Vector3.up * JumpPower, ForceMode.VelocityChange);
+    }
 }
