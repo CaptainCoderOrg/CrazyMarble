@@ -17,10 +17,8 @@ namespace CrazyMarble
         [field: SerializeField]
         public UnityEvent OnDeath { get; private set; }
         public Rigidbody RigidBody { get; private set; }
-
         [field: SerializeField]
         public float GroundDistanceLength { get; private set; } = .75f;
-
         public bool IsOnGround
         {
             get
@@ -75,6 +73,5 @@ namespace CrazyMarble
                 Kill();
             }
         }
-
     }
 }
