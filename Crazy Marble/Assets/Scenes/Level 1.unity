@@ -560,6 +560,10 @@ PrefabInstance:
       propertyPath: _baseRotationPower
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8618205891522460861, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
+      propertyPath: <BoostForce>k__BackingField
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8618205891522460862, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
       propertyPath: m_RootOrder
       value: 3

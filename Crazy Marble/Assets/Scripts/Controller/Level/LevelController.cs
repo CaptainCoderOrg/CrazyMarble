@@ -14,7 +14,7 @@ namespace CrazyMarble
 
         public void CheckGoalTriggerStart(Collider other)
         {
-            if (other.attachedRigidbody.TryGetComponent<PlayerEntity>(out _))
+            if (other.attachedRigidbody.TryGetComponent<MarbleEntity>(out _))
             {
                 _playerEnterGoalTime = Time.time;
             }
@@ -22,7 +22,7 @@ namespace CrazyMarble
 
         public void CheckGoalTriggerStay(Collider other)
         {
-            if (other.attachedRigidbody.TryGetComponent<PlayerEntity>(out _))
+            if (other.attachedRigidbody.TryGetComponent<MarbleEntity>(out _))
             {
                 float timeInGoal = Time.time - _playerEnterGoalTime;
                 if (timeInGoal >= _goalResolveTime)
