@@ -6,7 +6,6 @@ namespace CrazyMarble
     [RequireComponent(typeof(MarbleControls), typeof(MarbleEntity))]
     public class MarbleJumpController : MonoBehaviour
     {
-
         private MarbleEntity _entity;
         [field: SerializeField]
         public float JumpPower { get; private set; } = 5f;

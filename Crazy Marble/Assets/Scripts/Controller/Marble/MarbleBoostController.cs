@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.Events;
 
 namespace CrazyMarble
 {
@@ -18,10 +18,18 @@ namespace CrazyMarble
         public float BoostRotationSpeed { get; private set; } = 2.5f;
         [field: SerializeField]
         public float BoostForce { get; private set; } = 1f;
+        [field: SerializeField]
+        public UnityEvent<MarbleBoostController> OnChange { get; private set; }
         public float Fuel
         {
             get => _fuel;
-            private set => _fuel = Mathf.Clamp(value, 0, MaxFuel);
+            private set 
+            {
+                float newVal = Mathf.Clamp(value, 0, MaxFuel);
+                if (_fuel == newVal) { return; }
+                _fuel = newVal;
+                OnChange.Invoke(this);
+            }
         }
         [field: SerializeField]
         public float MaxFuel { get; private set; } = 2.5f;
@@ -62,11 +70,16 @@ namespace CrazyMarble
             }
         }
 
-        private void StartBoost() => _isBoosting = true;
+        private void StartBoost() 
+        {
+            _isBoosting = true;
+            OnChange.Invoke(this);
+        }
         private void StopBoost()
         {
             _isBoosting = false;
             _stoppedBoostingAt = Time.time;
+            OnChange.Invoke(this);
         }
     }
 }
