@@ -15,7 +15,10 @@ namespace CrazyMarble
         private bool _isDead;
 
         [field: SerializeField]
-        public UnityEvent OnDeath { get; private set; }
+        public int LostCount { get; private set; } = 0;
+
+        [field: SerializeField]
+        public UnityEvent<MarbleEntity> OnDeath { get; private set; }
         [field: SerializeField]
         public UnityEvent OnSpawn { get; private set; }
         public Rigidbody RigidBody { get; private set; }
@@ -34,8 +37,9 @@ namespace CrazyMarble
 
         public void Kill()
         {
-            OnDeath.Invoke();
+            LostCount++;
             _isDead = true;
+            OnDeath.Invoke(this);
             StartCoroutine(Respawn());
         }
 
