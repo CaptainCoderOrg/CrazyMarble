@@ -4019,22 +4019,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnSpawn>k__BackingField.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnSpawn>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
       propertyPath: <OnDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 176549176}
@@ -4042,66 +4026,10 @@ PrefabInstance:
       propertyPath: <OnSpawn>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1820312658}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnSpawn>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Render
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnSpawn>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetTimer
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CrazyMarble.UI.LostMarblesRenderer, CrazyMarble
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnSpawn>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CrazyMarble.LevelTimer, CrazyMarble
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnDeath>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273363, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnSpawn>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273366, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnChange>k__BackingField.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273366, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1422273366, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
       propertyPath: <OnChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 958883622}
-    - target: {fileID: 1422273366, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273366, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Render
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273366, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CrazyMarble.UI.BoostInfoRenderer, CrazyMarble
-      objectReference: {fileID: 0}
-    - target: {fileID: 1422273366, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: <OnChange>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 7114621643062037056, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
       propertyPath: <MainCamera>k__BackingField
       value: 
@@ -4109,10 +4037,6 @@ PrefabInstance:
     - target: {fileID: 8618205891522460856, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8618205891522460856, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8618205891522460862, guid: 97b4705d5714cc34fa7054a5254ca31a, type: 3}
       propertyPath: m_RootOrder
@@ -5270,7 +5194,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423681506}
-  m_LocalRotation: {x: 0.19424808, y: -0.000000016878642, z: 0.0000000033423064, w: 0.98095244}
+  m_LocalRotation: {x: 0.19424808, y: 0.000000016878642, z: -0.0000000033423064, w: 0.98095244}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6080,7 +6004,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687440028}
-  m_LocalRotation: {x: 0.22975291, y: -0.000000018722702, z: 0.00000000441983, w: 0.973249}
+  m_LocalRotation: {x: 0.22975291, y: 0.000000018722702, z: -0.00000000441983, w: 0.973249}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

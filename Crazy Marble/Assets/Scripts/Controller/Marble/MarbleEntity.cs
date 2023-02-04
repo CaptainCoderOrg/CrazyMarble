@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-
+using CaptainCoder;
 namespace CrazyMarble
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -13,6 +13,8 @@ namespace CrazyMarble
         [SerializeField]
         private float _outOfBoundsDeathRange = 10f;
         private bool _isDead;
+        [SerializeField]
+        private GameObject _deathParticles;
 
         [field: SerializeField]
         public int LostCount { get; private set; } = 0;
@@ -39,6 +41,7 @@ namespace CrazyMarble
         {
             LostCount++;
             _isDead = true;
+            _deathParticles.InstantiateAt(transform.position);
             OnDeath.Invoke(this);
             StartCoroutine(Respawn());
         }
