@@ -32,21 +32,11 @@ namespace CrazyMarble
         private void HandleMovement(CallbackContext context)
         {
             Vector2 rawInput = context.ReadValue<Vector2>();
-            Vector3 cameraRightAngles = MainCamera.transform.right;
-            Vector3 cameraForwardAngles = MainCamera.transform.forward;
-            cameraForwardAngles.y = 0;
-            cameraForwardAngles.Normalize();
-            
-            Vector2 forward2D = new (cameraForwardAngles.x, cameraForwardAngles.z);
-            Vector2 right2D = new (cameraRightAngles.x, cameraRightAngles.z);
-
-            // Debug.DrawRay(transform.position, cameraRightAngles * 3, Color.blue, 5);
-            // Debug.DrawRay(transform.position, cameraForwardAngles * 3, Color.yellow, 5);
-            
-            forward2D = forward2D * rawInput.y;
-            right2D = right2D * rawInput.x;
-            InputDirection = forward2D + right2D;
+            Quaternion cameraRotation = MainCamera.transform.rotation;
+            Vector3 inputDirection = cameraRotation * new Vector3(rawInput.x, 0, rawInput.y);
+            InputDirection = new Vector2(inputDirection.x, inputDirection.z);
         }
+
         private void StopMovement(CallbackContext context) => InputDirection = Vector2.zero;
     }
 }

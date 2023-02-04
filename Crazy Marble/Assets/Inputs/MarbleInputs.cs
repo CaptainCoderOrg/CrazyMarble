@@ -138,7 +138,7 @@ namespace CrazyMarble.Input
                 {
                     ""name"": ""down"",
                     ""id"": ""a218a7cf-c853-47bd-bf35-fd6427678ee1"",
-                    ""path"": ""<XInputController>/leftStick/down"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -224,6 +224,114 @@ namespace CrazyMarble.Input
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Camera Controls"",
+            ""id"": ""e5d57045-a368-4bc3-b31a-59b7c452a02d"",
+            ""actions"": [
+                {
+                    ""name"": ""StartCameraRotation"",
+                    ""type"": ""Button"",
+                    ""id"": ""dafc83ac-4370-406f-9396-ed013679b90e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveCamera"",
+                    ""type"": ""Value"",
+                    ""id"": ""5bcb6bf7-2b10-4b24-8f99-2e2451898e34"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ZoomScroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""bd2361b6-ee0f-4976-9501-66d7f9010e7a"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ZoomIn"",
+                    ""type"": ""Button"",
+                    ""id"": ""169a2c73-2fe0-4f2a-a11c-b2c59c2fb38a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ZoomOut"",
+                    ""type"": ""Button"",
+                    ""id"": ""18147983-8174-47c8-82d1-f242fa810417"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b3229350-a93f-48d9-9489-fa97e87cc5d0"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""StartCameraRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d94452ec-5b29-4902-ab1a-7305b62e61a8"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MoveCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7ba740d-5ac3-4284-aa2e-859ace631dcf"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ZoomScroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d9ab8f2c-9927-4d85-95b2-4df268a21a30"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ZoomIn"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cefa5deb-8ee5-44d9-b9e4-f951e0829da4"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ZoomOut"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -261,6 +369,13 @@ namespace CrazyMarble.Input
             m_MarbleControls_Movement = m_MarbleControls.FindAction("Movement", throwIfNotFound: true);
             m_MarbleControls_Hop = m_MarbleControls.FindAction("Hop", throwIfNotFound: true);
             m_MarbleControls_Boost = m_MarbleControls.FindAction("Boost", throwIfNotFound: true);
+            // Camera Controls
+            m_CameraControls = asset.FindActionMap("Camera Controls", throwIfNotFound: true);
+            m_CameraControls_StartCameraRotation = m_CameraControls.FindAction("StartCameraRotation", throwIfNotFound: true);
+            m_CameraControls_MoveCamera = m_CameraControls.FindAction("MoveCamera", throwIfNotFound: true);
+            m_CameraControls_ZoomScroll = m_CameraControls.FindAction("ZoomScroll", throwIfNotFound: true);
+            m_CameraControls_ZoomIn = m_CameraControls.FindAction("ZoomIn", throwIfNotFound: true);
+            m_CameraControls_ZoomOut = m_CameraControls.FindAction("ZoomOut", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -365,6 +480,71 @@ namespace CrazyMarble.Input
             }
         }
         public MarbleControlsActions @MarbleControls => new MarbleControlsActions(this);
+
+        // Camera Controls
+        private readonly InputActionMap m_CameraControls;
+        private ICameraControlsActions m_CameraControlsActionsCallbackInterface;
+        private readonly InputAction m_CameraControls_StartCameraRotation;
+        private readonly InputAction m_CameraControls_MoveCamera;
+        private readonly InputAction m_CameraControls_ZoomScroll;
+        private readonly InputAction m_CameraControls_ZoomIn;
+        private readonly InputAction m_CameraControls_ZoomOut;
+        public struct CameraControlsActions
+        {
+            private @MarbleInputs m_Wrapper;
+            public CameraControlsActions(@MarbleInputs wrapper) { m_Wrapper = wrapper; }
+            public InputAction @StartCameraRotation => m_Wrapper.m_CameraControls_StartCameraRotation;
+            public InputAction @MoveCamera => m_Wrapper.m_CameraControls_MoveCamera;
+            public InputAction @ZoomScroll => m_Wrapper.m_CameraControls_ZoomScroll;
+            public InputAction @ZoomIn => m_Wrapper.m_CameraControls_ZoomIn;
+            public InputAction @ZoomOut => m_Wrapper.m_CameraControls_ZoomOut;
+            public InputActionMap Get() { return m_Wrapper.m_CameraControls; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(CameraControlsActions set) { return set.Get(); }
+            public void SetCallbacks(ICameraControlsActions instance)
+            {
+                if (m_Wrapper.m_CameraControlsActionsCallbackInterface != null)
+                {
+                    @StartCameraRotation.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnStartCameraRotation;
+                    @StartCameraRotation.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnStartCameraRotation;
+                    @StartCameraRotation.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnStartCameraRotation;
+                    @MoveCamera.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnMoveCamera;
+                    @MoveCamera.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnMoveCamera;
+                    @MoveCamera.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnMoveCamera;
+                    @ZoomScroll.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomScroll;
+                    @ZoomScroll.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomScroll;
+                    @ZoomScroll.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomScroll;
+                    @ZoomIn.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomIn;
+                    @ZoomIn.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomIn;
+                    @ZoomIn.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomIn;
+                    @ZoomOut.started -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomOut;
+                    @ZoomOut.performed -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomOut;
+                    @ZoomOut.canceled -= m_Wrapper.m_CameraControlsActionsCallbackInterface.OnZoomOut;
+                }
+                m_Wrapper.m_CameraControlsActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @StartCameraRotation.started += instance.OnStartCameraRotation;
+                    @StartCameraRotation.performed += instance.OnStartCameraRotation;
+                    @StartCameraRotation.canceled += instance.OnStartCameraRotation;
+                    @MoveCamera.started += instance.OnMoveCamera;
+                    @MoveCamera.performed += instance.OnMoveCamera;
+                    @MoveCamera.canceled += instance.OnMoveCamera;
+                    @ZoomScroll.started += instance.OnZoomScroll;
+                    @ZoomScroll.performed += instance.OnZoomScroll;
+                    @ZoomScroll.canceled += instance.OnZoomScroll;
+                    @ZoomIn.started += instance.OnZoomIn;
+                    @ZoomIn.performed += instance.OnZoomIn;
+                    @ZoomIn.canceled += instance.OnZoomIn;
+                    @ZoomOut.started += instance.OnZoomOut;
+                    @ZoomOut.performed += instance.OnZoomOut;
+                    @ZoomOut.canceled += instance.OnZoomOut;
+                }
+            }
+        }
+        public CameraControlsActions @CameraControls => new CameraControlsActions(this);
         private int m_KeyboardSchemeIndex = -1;
         public InputControlScheme KeyboardScheme
         {
@@ -388,6 +568,14 @@ namespace CrazyMarble.Input
             void OnMovement(InputAction.CallbackContext context);
             void OnHop(InputAction.CallbackContext context);
             void OnBoost(InputAction.CallbackContext context);
+        }
+        public interface ICameraControlsActions
+        {
+            void OnStartCameraRotation(InputAction.CallbackContext context);
+            void OnMoveCamera(InputAction.CallbackContext context);
+            void OnZoomScroll(InputAction.CallbackContext context);
+            void OnZoomIn(InputAction.CallbackContext context);
+            void OnZoomOut(InputAction.CallbackContext context);
         }
     }
 }
