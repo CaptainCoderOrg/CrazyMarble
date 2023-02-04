@@ -16,6 +16,8 @@ namespace CrazyMarble
 
         [field: SerializeField]
         public UnityEvent OnDeath { get; private set; }
+        [field: SerializeField]
+        public UnityEvent OnSpawn { get; private set; }
         public Rigidbody RigidBody { get; private set; }
         [field: SerializeField]
         public float GroundDistanceLength { get; private set; } = .75f;
@@ -40,17 +42,17 @@ namespace CrazyMarble
         public IEnumerator Respawn()
         {
             RigidBody.constraints = RigidbodyConstraints.FreezeAll;
-            // TODO: Hide Model
             GameObject child = GetComponentInChildren<Renderer>().gameObject;
-            child.SetActive(false);
+            child?.SetActive(false);
             yield return new WaitForSeconds(_respawnTime);
             RigidBody.constraints = RigidbodyConstraints.None;
             RigidBody.position = _spawnPoint;
             RigidBody.velocity = Vector3.zero;
             RigidBody.rotation = Quaternion.identity;
-            child.SetActive(true);
+            child?.SetActive(true);
             yield return new WaitForFixedUpdate();
             _isDead = false;
+            OnSpawn.Invoke();
         }
 
         protected void Awake()
@@ -58,6 +60,7 @@ namespace CrazyMarble
             RigidBody = GetComponent<Rigidbody>();
             _spawnPoint = RigidBody.position;
             Platforms.Initialize();
+            OnSpawn.Invoke();
         }
 
         protected void Update()

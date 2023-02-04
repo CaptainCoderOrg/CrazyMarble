@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace CrazyMarble
 {
     public class LevelController : MonoBehaviour
-    { 
+    {
         [field: SerializeField]
         public UnityEvent OnLevelComplete { get; private set; }
 
