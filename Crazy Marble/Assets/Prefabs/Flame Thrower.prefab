@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688813275605811444}
   m_LocalRotation: {x: -0.7071068, y: 0.00000004338887, z: -0.000000029802322, w: 0.7071068}
-  m_LocalPosition: {x: 0.35, y: 0, z: -0.24}
+  m_LocalPosition: {x: 0.35, y: 0.34, z: -0.303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -169,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -285,7 +285,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -669,7 +669,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 0.1, y: 0.1, z: 1}
+    m_Scale: {x: 0.1, y: 0.1, z: 0.1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4786,7 +4786,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -5599,7 +5599,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1165
+  m_VersionIndex: 1168
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5696,6 +5696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7296643769711559919}
   - component: {fileID: 4046442759763719602}
+  - component: {fileID: 6490605486791457755}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -5732,6 +5733,18 @@ CapsuleCollider:
   m_Height: 2.1174893
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6490605486791457755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125864356915243745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efeffca56bf40d04291c65910de53947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7844749441322938199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5741,6 +5754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8559294600860872568}
+  - component: {fileID: 2924601334340408460}
   m_Layer: 0
   m_Name: Flame Thrower
   m_TagString: Untagged
@@ -5764,3 +5778,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2924601334340408460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844749441322938199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d49a9e10f0c7d544af0dcaf4b27ca61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collider: {fileID: 4046442759763719602}
+  _timeToMaxSize: 0.5
+  _maxFlameSize: 5
+  <Particles>k__BackingField: {fileID: 8027319501211607286}
