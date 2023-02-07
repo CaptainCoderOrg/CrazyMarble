@@ -7,6 +7,7 @@ namespace CrazyMarble
     [RequireComponent(typeof(Rigidbody))]
     public class MarbleEntity : MonoBehaviour
     {
+        public static MarbleEntity Instance { get; private set; }
         private Vector3 _spawnPoint;
         [SerializeField]
         private float _respawnTime = 1.44f;
@@ -64,6 +65,8 @@ namespace CrazyMarble
 
         protected void Awake()
         {
+            // TODO: Potentially add warning about multiple instances
+            Instance = this;
             RigidBody = GetComponent<Rigidbody>();
             _spawnPoint = RigidBody.position;
             Platforms.Initialize();
