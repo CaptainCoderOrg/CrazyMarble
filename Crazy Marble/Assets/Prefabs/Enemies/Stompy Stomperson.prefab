@@ -824,7 +824,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2101
+  m_VersionIndex: 2302
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -968,7 +968,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &5514892368746317852
 MonoBehaviour:
@@ -983,11 +983,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stompBox: {fileID: 3707553114277404835}
+  _shakeRate: 35
+  _shakeScale: 0.1
   _startPosition: {x: 0, y: 0, z: 0}
   _endPosition: {x: 0, y: 0, z: 0}
   _bottomCenter: {fileID: 174711582264031623}
   <ShakeDistanceFromMarble>k__BackingField: 7
-  <DropDistanceFromMarble>k__BackingField: 4
+  <DropDistanceFromMarble>k__BackingField: 3
   <StompDelay>k__BackingField: 1
   <RetractSeconds>k__BackingField: 3
   <DropSeconds>k__BackingField: 0.25
@@ -1089,7 +1091,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1349
+  m_VersionIndex: 1550
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1272,7 +1274,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1343
+  m_VersionIndex: 1544
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1578,7 +1580,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1040
+  m_VersionIndex: 1116
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

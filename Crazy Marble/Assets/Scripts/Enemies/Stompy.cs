@@ -15,6 +15,10 @@ namespace CrazyMarble.Enemy
         private StompyState _state = StompyState.Waiting;
         [SerializeField]
         private BoxCollider _stompBox;
+        [SerializeField]
+        private float _shakeRate = 1f;
+        [SerializeField]
+        private float _shakeScale = 5f;
         private float _startTransitionTime;
         [SerializeField]
         private Vector3 _startPosition;
@@ -43,38 +47,21 @@ namespace CrazyMarble.Enemy
 
         public void FixedUpdate() {
             Action method = _state switch {
-                StompyState.Dropping => HandleDrop,
-                StompyState.Retracting => HandleRetraction,
+                StompyState.Dropping => LerpDropPosition,
+                StompyState.Retracting => LerpRetractingPosition,
                 StompyState.Waiting => HandleWait,
                 _ => throw new Exception("Ooops!"),
             };
             method.Invoke();
         }
 
-        private IEnumerator Drop()
-        {
-            if (_state == StompyState.Waiting)
-            {
-                _stompBox.gameObject.SetActive(true);
-                _state = StompyState.Dropping;
-                _startTransitionTime = Time.time;
-                yield return new WaitForSeconds(DropSeconds + StompDelay);
-                _stompBox.gameObject.SetActive(false);
-                _state = StompyState.Retracting;
-                _startTransitionTime = Time.time;
-                yield return new WaitForSeconds(RetractSeconds);
-
-                _state = StompyState.Waiting;
-            }
-        }
-
-        private void HandleDrop()
+        private void LerpDropPosition()
         {
             float progress = Mathf.Clamp01((Time.time - _startTransitionTime) / DropSeconds);
             _rigidBody.MovePosition(Vector3.Lerp(_startPosition, _endPosition, progress));
         }
 
-        private void HandleRetraction()
+        private void LerpRetractingPosition()
         {
             float progress = Mathf.Clamp01((Time.time - _startTransitionTime) / RetractSeconds);
             _rigidBody.MovePosition(Vector3.Lerp(_endPosition, _startPosition, progress));
@@ -82,15 +69,22 @@ namespace CrazyMarble.Enemy
 
         private void HandleWait()
         {
+            if (_state != StompyState.Waiting) { return; }
             float distance = DistanceFrom(MarbleEntity.Instance);
             _rigidBody.velocity = new Vector3();
-            if (distance <= DropDistanceFromMarble && _state == StompyState.Waiting)
+            if (distance <= DropDistanceFromMarble)
             {
                 StartCoroutine(Drop());
             }
-            else if (distance <= ShakeDistanceFromMarble && _state == StompyState.Waiting)
+            else if (distance <= ShakeDistanceFromMarble)
             {
-                Debug.Log("Shake it! Shake Shake Shake Shake it");
+                float sine =  Mathf.Sin(Time.time * _shakeRate) * _shakeScale;
+                Vector3 scale = Vector3.up * sine;                
+                _rigidBody.MovePosition(_startPosition + scale);
+            }
+            else
+            {
+                _rigidBody.MovePosition(_startPosition);
             }
         }
 
@@ -108,6 +102,25 @@ namespace CrazyMarble.Enemy
             Vector3 stompyPosition = _bottomCenter.position;
             stompyPosition.y = 0;
             return Vector3.Distance(marblePosition, stompyPosition);
+        }
+
+        private IEnumerator Drop()
+        {
+            if (_state == StompyState.Waiting)
+            {
+                _stompBox.gameObject.SetActive(true);
+                _state = StompyState.Dropping;
+                _startTransitionTime = Time.time;
+                yield return new WaitForSeconds(DropSeconds);
+                GameCamera.CurrentCamera.Shake(.5f, 5);
+                yield return new WaitForSeconds(StompDelay);
+                _stompBox.gameObject.SetActive(false);
+                _state = StompyState.Retracting;
+                _startTransitionTime = Time.time;
+                yield return new WaitForSeconds(RetractSeconds);
+
+                _state = StompyState.Waiting;
+            }
         }
     }
 }
