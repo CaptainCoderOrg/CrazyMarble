@@ -10,7 +10,7 @@ namespace CrazyMarble.Hazard
         private float _startAnimationTime;
         private bool _isExtending;
         private Vector3 _retractedPosition;
-        private Vector3 ExtendedPosition => _retractedPosition + Direction * ExtendDistance;
+        private Vector3 ExtendedPosition => _retractedPosition + -transform.forward * ExtendDistance;
 
         [field: SerializeField]
         public float StartDelaySeconds { get; private set; } = 0f;
@@ -20,8 +20,6 @@ namespace CrazyMarble.Hazard
         public float PauseSeconds { get; private set; } = 2f;
         [field: SerializeField]
         public float Speed { get; private set; } = .1f;
-        [field: SerializeField]
-        public Vector3 Direction { get; private set; } = new Vector3(0, 0, -1);
 
         public void Awake()
         {

@@ -11,7 +11,7 @@ namespace CrazyMarble.Input
         public CinemachineFreeLook FreeLookCamera { get; private set; }
         public bool IsCameraMoveable { get; private set; } = false;
         [field: SerializeField]
-        public float MouseRotationSpeed { get; private set; } = 1200f;
+        public float MouseRotationSpeed { get; private set; } = 600f;
         [field: SerializeField]
         public float MouseTiltSpeed { get; private set; } = 1f;
 
