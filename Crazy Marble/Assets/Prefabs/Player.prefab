@@ -5085,7 +5085,7 @@ MonoBehaviour:
   _stoppedBoostingAt: 0
   _fuel: 2.5
   <BoostRotationSpeed>k__BackingField: 2.5
-  <BoostForce>k__BackingField: 2
+  <BoostForce>k__BackingField: 5
   <OnChange>k__BackingField:
     m_PersistentCalls:
       m_Calls:
