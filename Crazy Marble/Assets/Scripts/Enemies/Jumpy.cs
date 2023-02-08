@@ -10,6 +10,7 @@ namespace CrazyMarble.Enemy
 
     public class Jumpy : MonoBehaviour
     {
+
         [SerializeField]
         private GameObject _sphere;
         [SerializeField]
@@ -28,6 +29,8 @@ namespace CrazyMarble.Enemy
         private float _waitDuration = 2f;
         [SerializeField]
         private float _jumpHeight = 3f;
+        [SerializeField]
+        private float _startDelayTime = 0f;
         [SerializeField]
         private AnimationCurve _jumpCurve;
         private float _transitionStartTime;
@@ -83,6 +86,7 @@ namespace CrazyMarble.Enemy
 
         private IEnumerator UpdateLoop()
         {
+            yield return new WaitForSeconds(_startDelayTime);
             while (true)
             {
                 _state = JumpyState.Waiting;
