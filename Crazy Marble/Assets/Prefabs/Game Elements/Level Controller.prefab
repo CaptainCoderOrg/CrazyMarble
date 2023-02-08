@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3377964463211876800}
   - component: {fileID: 3377964463211876801}
   - component: {fileID: 3377964463211876802}
+  - component: {fileID: 5714663336353297224}
   m_Layer: 0
   m_Name: Level Controller
   m_TagString: Untagged
@@ -61,6 +62,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   _goalResolveTime: 3
+  _musicTrack: 5
 --- !u!114 &3377964463211876802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,3 +107,17 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   <StartingTimeAmount>k__BackingField: 121
+--- !u!114 &5714663336353297224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3377964463211876831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873a06a3c49ed6345afa20007199b13c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 0.25
+  _skyBox: {fileID: 2100000, guid: 9eed2611a644e3545b416af65c62e5f6, type: 2}
