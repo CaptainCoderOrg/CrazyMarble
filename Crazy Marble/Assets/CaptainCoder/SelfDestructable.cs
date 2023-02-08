@@ -15,5 +15,10 @@ namespace CaptainCoder
         }
 
         private void SelfDestruct() => Destroy(gameObject);
+
+        public void SelfDestructIn(float seconds)
+        {
+            Invoke(nameof(SelfDestruct), seconds);
+        }
     }
 }

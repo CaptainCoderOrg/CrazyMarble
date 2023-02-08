@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using CaptainCoder.Audio;
 
 namespace CrazyMarble
 {
@@ -10,7 +11,14 @@ namespace CrazyMarble
 
         [SerializeField]
         private float _goalResolveTime = 3.0f;
+        [SerializeField]
+        private int _musicTrack = 0;
         private float _playerEnterGoalTime;
+
+        public void Start()
+        {
+            MusicController.Instance.StartTrack(_musicTrack);
+        }
 
         public void CheckGoalTriggerStart(Collider other)
         {

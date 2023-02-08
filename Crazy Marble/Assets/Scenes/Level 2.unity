@@ -1680,3 +1680,4 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   _goalResolveTime: 3
+  _musicTrack: 1
