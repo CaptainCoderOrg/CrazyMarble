@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CaptainCoder.Audio
+namespace CrazyMarble.Audio
 {
 
     public class SFXDatabase : MonoBehaviour
@@ -21,7 +21,7 @@ namespace CaptainCoder.Audio
         }
 
         [field: SerializeField]
-        public AudioClip Explosion { get; private set; }
+        public AudioClip LostMarble { get; private set; }
         [field: SerializeField]
         public AudioClip Bounce { get; private set; }
     }

@@ -4970,6 +4970,7 @@ GameObject:
   - component: {fileID: 1422273366}
   - component: {fileID: 7114621643062037056}
   - component: {fileID: 1422273368}
+  - component: {fileID: 9079699247407844969}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5130,3 +5131,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <JumpPower>k__BackingField: 5
+--- !u!81 &9079699247407844969
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8618205891522460856}
+  m_Enabled: 1

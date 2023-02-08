@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CrazyMarble.Audio;
 
 namespace CrazyMarble.Enemy
 {
@@ -10,7 +11,7 @@ namespace CrazyMarble.Enemy
     [RequireComponent(typeof(Rigidbody))]
     public class Stompy : MonoBehaviour
     {
-        
+        private SoundEffect _crashSound;
         private Rigidbody _rigidBody;
         private StompyState _state = StompyState.Waiting;
         [SerializeField]
@@ -38,6 +39,7 @@ namespace CrazyMarble.Enemy
         public float DropSeconds { get; private set; } = 0.5f;
 
         public void Awake() {
+            _crashSound = GetComponentInChildren<SoundEffect>();
             _rigidBody = GetComponent<Rigidbody>();
             _startPosition = transform.position;
             _endPosition = transform.position;
@@ -112,6 +114,7 @@ namespace CrazyMarble.Enemy
                 _state = StompyState.Dropping;
                 _startTransitionTime = Time.time;
                 yield return new WaitForSeconds(DropSeconds);
+                _crashSound.Play();
                 GameCamera.CurrentCamera.Shake(.5f, 5);
                 yield return new WaitForSeconds(StompDelay);
                 _stompBox.gameObject.SetActive(false);

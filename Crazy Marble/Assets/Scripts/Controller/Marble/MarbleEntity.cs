@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using CaptainCoder;
+using CaptainCoder.Audio;
+using CrazyMarble.Audio;
 namespace CrazyMarble
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -44,6 +46,7 @@ namespace CrazyMarble
             _isDead = true;
             _deathParticles.InstantiateAt(transform.position);
             OnDeath.Invoke(this);
+            SFXController.Play(SFXDatabase.Instance.LostMarble);
             StartCoroutine(Respawn());
         }
 
