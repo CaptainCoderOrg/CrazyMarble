@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using CrazyMarble.Audio;
 
 namespace CrazyMarble.Enemy
 {
@@ -10,7 +11,8 @@ namespace CrazyMarble.Enemy
 
     public class Jumpy : MonoBehaviour
     {
-
+        [SerializeField]
+        private RandomSoundEffect _soundEffects;
         [SerializeField]
         private GameObject _sphere;
         [SerializeField]
@@ -40,6 +42,7 @@ namespace CrazyMarble.Enemy
         public void Awake()
         {
             _rigidBody = GetComponentInChildren<Rigidbody>();
+            _soundEffects = GetComponent<RandomSoundEffect>();
             _waypoints = new ();
             foreach (Transform child in _waypointsContainer)
             {
@@ -97,6 +100,7 @@ namespace CrazyMarble.Enemy
                 _previousWaypoint = _currentWaypoint;
                 _currentWaypoint = NextWaypoint(_currentWaypoint, _waypoints.Count);
                 yield return new WaitForSeconds(_jumpDuration);
+                _soundEffects.Play();
             }
         }
 
