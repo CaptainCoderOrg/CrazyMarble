@@ -21,10 +21,10 @@ namespace CrazyMarble
 
         public float TimeLeft
         {
-            get => Mathf.Clamp(_timeLeft, 0, 99);
+            get => Mathf.Clamp(_timeLeft, 0, 100);
             private set
             {
-                float newVal = Mathf.Clamp(value, 0, 99);
+                float newVal = Mathf.Clamp(value, 0, 100);
                 if (_timeLeft == newVal) { return; }
                 _timeLeft = newVal;
                 OnTimeChange.Invoke(_timeLeft);
