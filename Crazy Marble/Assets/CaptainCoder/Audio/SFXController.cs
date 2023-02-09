@@ -6,7 +6,7 @@ namespace CaptainCoder.Audio
 {
     public static class SFXController
     {
-        private static float? _volume = 0.5f;
+        private static float? _volume;
         public static float Volume 
         { 
             get 

@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using CrazyMarble.Audio;
 
 namespace CrazyMarble.Hazard
 {
     [RequireComponent(typeof(Rigidbody))]
     public class Pusher : MonoBehaviour
     {
+        private SoundEffect _soundEffect;
+        private GameObject _crusher;
         private Rigidbody _rigidBody;
         private float _startAnimationTime;
         private bool _isExtending;
@@ -23,8 +26,15 @@ namespace CrazyMarble.Hazard
 
         public void Awake()
         {
+            _soundEffect = GetComponentInChildren<SoundEffect>();
+            Debug.Assert(_soundEffect != null, "Could not find Sound Effect on Pusher");
+            _crusher = GetComponentInChildren<InstantDeathTrigger>()?.gameObject;
+            Debug.Assert(_crusher != null, "Could not find Crusher on Pusher");
             _rigidBody = GetComponent<Rigidbody>();
+            Debug.Assert(_rigidBody != null, "Could not find rigid body on Pusher.");
             _retractedPosition = transform.position;
+            
+            _crusher.SetActive(false);
             StartCoroutine(nameof(PusherLoop));
         }
 
@@ -43,8 +53,10 @@ namespace CrazyMarble.Hazard
             {
                 Extend();
                 yield return new WaitForSeconds(PauseSeconds);
+                _soundEffect?.Play();
                 Retract();
                 yield return new WaitForSeconds(PauseSeconds);
+                _soundEffect?.Play();
             }
         }
 
@@ -58,6 +70,7 @@ namespace CrazyMarble.Hazard
         {
             _startAnimationTime = Time.time;
             _isExtending = false;
+            _crusher?.SetActive(true);
         }
 
     }

@@ -17,7 +17,6 @@ namespace CaptainCoder.Audio
                 {
                     GameObject go = new GameObject("Music Controller");
                     MusicController controller = go.AddComponent<MusicController>();
-                    controller._musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
                 }
                 return s_Instance;
             }
@@ -29,18 +28,25 @@ namespace CaptainCoder.Audio
         private AudioSource _queuedAudio;
         private float _fadeTime = 0;
         private bool _swapQueued;
-        private float _musicVolume = .5f;
+        private float? _musicVolume;
         public float MusicVolume 
         { 
-            get => _musicVolume; 
+            get 
+            {
+                if (_musicVolume == null)
+                {
+                    _musicVolume = PlayerPrefs.GetFloat("MusicVolume", .5f);
+                }
+                return _musicVolume.Value; 
+            } 
             set
             {
                 _musicVolume = Mathf.Clamp(value, 0, 1);
-                _playingAudio.volume = _musicVolume;
-                PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
+                _playingAudio.volume = _musicVolume.Value;
+                PlayerPrefs.SetFloat("MusicVolume", _musicVolume.Value);
             }
         }
-        
+
         public int MenuTrack = 0;
         public int VictoryTrack = 1;
 
@@ -108,8 +114,8 @@ namespace CaptainCoder.Audio
                 _queuedAudio = gameObject.AddComponent<AudioSource>();
                 _queuedAudio.loop = true;
                 _tracks = Resources.Load<MusicTrackDatabase>("Prefabs/MusicTrackDatabase");
-                VolumeController vc = Resources.Load<VolumeController>("Prefabs/VolumeController");
-                Instantiate(vc, transform);
+                // VolumeController vc = Resources.Load<VolumeController>("Prefabs/VolumeController");
+                // Instantiate(vc, transform);
                 DontDestroyOnLoad(this);
             }
         }

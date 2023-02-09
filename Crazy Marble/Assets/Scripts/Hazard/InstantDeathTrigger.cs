@@ -9,6 +9,7 @@ namespace CrazyMarble.Hazard
     {
         public void OnTriggerEnter(Collider other)
         {
+            if (other.attachedRigidbody == null) { return; }
             MarbleEntity marble = other.attachedRigidbody.GetComponent<MarbleEntity>();
             marble?.Kill();
         }
