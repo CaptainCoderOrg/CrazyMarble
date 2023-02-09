@@ -11,9 +11,9 @@ namespace CrazyMarble.Input
         public CinemachineFreeLook FreeLookCamera { get; private set; }
         public bool IsCameraMoveable { get; private set; } = false;
         [field: SerializeField]
-        public float MouseRotationSpeed { get; private set; } = 600f;
+        public float MouseRotationSpeed { get; private set; } = 1200f;
         [field: SerializeField]
-        public float MouseTiltSpeed { get; private set; } = 1f;
+        public float MouseTiltSpeed { get; private set; } = 5f;
 
         protected void Awake()
         {
@@ -36,14 +36,20 @@ namespace CrazyMarble.Input
 
         private void EnableMouseRotation(CallbackContext context)
         {
-            FreeLookCamera.m_XAxis.m_MaxSpeed = MouseRotationSpeed;
-            FreeLookCamera.m_YAxis.m_MaxSpeed = MouseTiltSpeed;
+            FreeLookCamera.m_XAxis.m_MaxSpeed = MouseRotationSpeed * CameraControls.MouseSensitivity;
+            FreeLookCamera.m_YAxis.m_MaxSpeed = MouseTiltSpeed * CameraControls.MouseSensitivity;
+            FreeLookCamera.m_XAxis.m_InvertInput = CameraControls.InvertXAxis;
+            FreeLookCamera.m_YAxis.m_InvertInput = CameraControls.InvertYAxis;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void DisableMouseRotation(CallbackContext context)
         {
             FreeLookCamera.m_XAxis.m_MaxSpeed = 0;
             FreeLookCamera.m_YAxis.m_MaxSpeed = 0;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         private void HandleZoom(CallbackContext context) => Zoom.ZoomAmount += System.Math.Sign(-context.ReadValue<float>());

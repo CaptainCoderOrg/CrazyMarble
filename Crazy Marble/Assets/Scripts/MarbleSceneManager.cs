@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace CrazyMarble
 {
-    public static class SceneManager
+    public static class MarbleSceneManager
     {
         public static void MainMenu()
         {

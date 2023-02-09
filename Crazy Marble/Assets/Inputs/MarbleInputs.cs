@@ -299,6 +299,34 @@ namespace CrazyMarble.Input
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""General Controls"",
+            ""id"": ""75cf2015-f9f6-4258-870e-eb20386b32cd"",
+            ""actions"": [
+                {
+                    ""name"": ""OptionsMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""3ba917ea-5536-453c-878d-0add66384c97"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0b7ee288-e5ee-456d-a89a-cccb775c9d49"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""OptionsMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -343,6 +371,9 @@ namespace CrazyMarble.Input
             m_CameraControls_ZoomScroll = m_CameraControls.FindAction("ZoomScroll", throwIfNotFound: true);
             m_CameraControls_ZoomIn = m_CameraControls.FindAction("ZoomIn", throwIfNotFound: true);
             m_CameraControls_ZoomOut = m_CameraControls.FindAction("ZoomOut", throwIfNotFound: true);
+            // General Controls
+            m_GeneralControls = asset.FindActionMap("General Controls", throwIfNotFound: true);
+            m_GeneralControls_OptionsMenu = m_GeneralControls.FindAction("OptionsMenu", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -512,6 +543,39 @@ namespace CrazyMarble.Input
             }
         }
         public CameraControlsActions @CameraControls => new CameraControlsActions(this);
+
+        // General Controls
+        private readonly InputActionMap m_GeneralControls;
+        private IGeneralControlsActions m_GeneralControlsActionsCallbackInterface;
+        private readonly InputAction m_GeneralControls_OptionsMenu;
+        public struct GeneralControlsActions
+        {
+            private @MarbleInputs m_Wrapper;
+            public GeneralControlsActions(@MarbleInputs wrapper) { m_Wrapper = wrapper; }
+            public InputAction @OptionsMenu => m_Wrapper.m_GeneralControls_OptionsMenu;
+            public InputActionMap Get() { return m_Wrapper.m_GeneralControls; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(GeneralControlsActions set) { return set.Get(); }
+            public void SetCallbacks(IGeneralControlsActions instance)
+            {
+                if (m_Wrapper.m_GeneralControlsActionsCallbackInterface != null)
+                {
+                    @OptionsMenu.started -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnOptionsMenu;
+                    @OptionsMenu.performed -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnOptionsMenu;
+                    @OptionsMenu.canceled -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnOptionsMenu;
+                }
+                m_Wrapper.m_GeneralControlsActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @OptionsMenu.started += instance.OnOptionsMenu;
+                    @OptionsMenu.performed += instance.OnOptionsMenu;
+                    @OptionsMenu.canceled += instance.OnOptionsMenu;
+                }
+            }
+        }
+        public GeneralControlsActions @GeneralControls => new GeneralControlsActions(this);
         private int m_KeyboardSchemeIndex = -1;
         public InputControlScheme KeyboardScheme
         {
@@ -543,6 +607,10 @@ namespace CrazyMarble.Input
             void OnZoomScroll(InputAction.CallbackContext context);
             void OnZoomIn(InputAction.CallbackContext context);
             void OnZoomOut(InputAction.CallbackContext context);
+        }
+        public interface IGeneralControlsActions
+        {
+            void OnOptionsMenu(InputAction.CallbackContext context);
         }
     }
 }
