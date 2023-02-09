@@ -18,12 +18,14 @@ namespace CrazyMarble.Audio
 
         public void Play()
         {
+            if (_audioSource == null) { return; }
             _audioSource.volume = SFXController.Volume;
             _audioSource.Play();
         }
 
         public void Stop()
         {
+            if (_audioSource == null) { return; }
             _audioSource.Stop();
         }
     }

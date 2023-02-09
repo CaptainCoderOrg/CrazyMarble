@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.72415876, g: 0.6086335, b: 0.43443304, a: 1}
+  m_IndirectSpecularColor: {r: 0.75879586, g: 0.6386079, b: 0.45773473, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: e1a1ddf2af7924b46a3414bc79cc4024, type: 2}
   m_LightingSettings: {fileID: 439663013}
 --- !u!196 &4
 NavMeshSettings:
@@ -8671,11 +8671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8101510197261474608, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000187227
+      value: -0.0000000187227
       objectReference: {fileID: 0}
     - target: {fileID: 8101510197261474608, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000044198294
+      value: 0.0000000044198294
       objectReference: {fileID: 0}
     - target: {fileID: 8101510198062380618, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8687,11 +8687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8101510198062380618, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016878642
+      value: 0.000000016878642
       objectReference: {fileID: 0}
     - target: {fileID: 8101510198062380618, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000033423064
+      value: -0.0000000033423064
       objectReference: {fileID: 0}
     - target: {fileID: 8101510198091567289, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.w

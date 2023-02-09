@@ -8,14 +8,17 @@ namespace CrazyMarble.UI
     {
         private TextMeshProUGUI _text;
 
-        public void Render(float timeRemaining)
-        {
-            _text.text = $"{(int)timeRemaining}".PadLeft(2, '0');
-        }
-
         protected void Awake()
         {
             _text = GetComponent<TextMeshProUGUI>();
         }
+
+        public void Render(float timeRemaining)
+        {
+            if (_text == null) { return; }
+            _text.text = $"{(int)timeRemaining}".PadLeft(2, '0');
+        }
+
+        
     }
 }

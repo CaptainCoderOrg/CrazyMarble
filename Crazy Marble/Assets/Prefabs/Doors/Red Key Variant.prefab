@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2304686441151831953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.569933
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0312507
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.0441875
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1990968323811559735, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14b42bc1cd8d41941b333fcac19c6695, type: 2}
+    - target: {fileID: -1439730007547781893, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14b42bc1cd8d41941b333fcac19c6695, type: 2}
+    - target: {fileID: 919132149155446097, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_Name
+      value: Red Key Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071182760956848314, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14b42bc1cd8d41941b333fcac19c6695, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14b42bc1cd8d41941b333fcac19c6695, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+--- !u!1 &1385575735830160064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 21c31f73c09efde448f3c88781e1e24d, type: 3}
+  m_PrefabInstance: {fileID: 2304686441151831953}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8934817591662866783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385575735830160064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3813932, y: 0.73136973, z: 1.8507534}
+  m_Center: {x: -0.0058773756, y: 0.024432302, z: -0.5914888}

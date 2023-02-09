@@ -19,7 +19,7 @@ namespace CrazyMarble.Hazard
         {
             _flameThrowers = GetComponentsInChildren<FlameThrower>();
             _flameSound = GetComponentInChildren<SoundEffect>();
-            StartCoroutine(nameof(FlameThrowerLoop));
+            StartCoroutine(FlameThrowerLoop());
         }
 
         public IEnumerator FlameThrowerLoop()
@@ -35,7 +35,7 @@ namespace CrazyMarble.Hazard
 
         public void TurnOn()
         {
-            _flameSound.Play();
+            _flameSound?.Play();
             foreach (FlameThrower ft in _flameThrowers)
             {
                 ft.TurnOn();
@@ -44,7 +44,7 @@ namespace CrazyMarble.Hazard
 
         public void TurnOff()
         {
-            _flameSound.Stop();
+            _flameSound?.Stop();
             foreach (FlameThrower ft in _flameThrowers)
             {
                 ft.TurnOff();

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 47b9c9f97d3d8f048927d15335c1ce95
+  - enabled: 1
     path: Assets/Scenes/Tower of Bullying.unity
     guid: c806bf6add1493243aad5c7b8e040b4a
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jumpys Domain.unity
     guid: 8bbe7fe37e5177f4b979ab5c59e5e6f6
-  - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
-    guid: 47b9c9f97d3d8f048927d15335c1ce95
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: be8bd5670f1f9454db883d13fdce26f6
