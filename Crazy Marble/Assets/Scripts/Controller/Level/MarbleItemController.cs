@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using CaptainCoder.Audio;
+using CrazyMarble.Audio;
 using UnityEngine;
 
 namespace CrazyMarble
@@ -18,6 +20,7 @@ namespace CrazyMarble
             MarbleInventory inventory = other.attachedRigidbody.GetComponent<MarbleInventory>();
             if (inventory != null)
             {
+                SFXController.Play(SFXDatabase.Instance.PickUp);
                 inventory.Add(Item);
                 MarbleEntity entity = other.attachedRigidbody.GetComponent<MarbleEntity>();
                 RegisterRespawn(entity);

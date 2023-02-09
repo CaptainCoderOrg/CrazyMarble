@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using CrazyMarble.Audio;
 using UnityEngine;
 
 namespace CrazyMarble
@@ -21,6 +22,7 @@ namespace CrazyMarble
 
         private IEnumerator OpenAnimation()
         {
+            GetComponent<SoundEffect>()?.Play();
             GameCamera.CurrentCamera.Shake(_animationTime, 10);
             _isOpening = true;
             _transitionStartTime = Time.time;

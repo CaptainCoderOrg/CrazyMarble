@@ -23,6 +23,6 @@ namespace CrazyMarble.Audio
         [field: SerializeField]
         public AudioClip LostMarble { get; private set; }
         [field: SerializeField]
-        public AudioClip Bounce { get; private set; }
+        public AudioClip PickUp { get; private set; }
     }
 }
