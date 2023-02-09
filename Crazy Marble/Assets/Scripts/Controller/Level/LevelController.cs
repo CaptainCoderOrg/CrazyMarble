@@ -4,6 +4,8 @@ using CaptainCoder.Audio;
 using CrazyMarble.Input;
 using CrazyMarble.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using CrazyMarble.Audio;
 
 namespace CrazyMarble
 {
@@ -17,6 +19,7 @@ namespace CrazyMarble
         [SerializeField]
         private int _musicTrack = 0;
         private float _playerEnterGoalTime;
+        private bool _completed = false;
 
         public void Awake() {
             GeneralControls.Initialize();
@@ -40,13 +43,25 @@ namespace CrazyMarble
             if (other.attachedRigidbody.TryGetComponent<MarbleEntity>(out _))
             {
                 float timeInGoal = Time.time - _playerEnterGoalTime;
-                if (timeInGoal >= _goalResolveTime)
+                if (!_completed && timeInGoal >= _goalResolveTime)
                 {
+                    _completed = true;
                     HUD.StageCleared();
                     GetComponent<LevelTimer>().Pause();
+                    StartCoroutine(VictoryMusic());
                     OnLevelComplete.Invoke();
                 }
             }
+        }
+
+        private IEnumerator VictoryMusic()
+        {
+            float volume = MusicController.Instance.MusicVolume;
+            MusicController.Instance.MusicVolume = 0;
+            SFXController.Play(SFXDatabase.Instance.VictoryCrush);
+            yield return new WaitForSeconds(1.5f);
+            MusicController.Instance.MusicVolume = volume;
+            MusicController.Instance.StartTrackImmediately(MusicController.Instance.VictoryTrack);
         }
     }
 }

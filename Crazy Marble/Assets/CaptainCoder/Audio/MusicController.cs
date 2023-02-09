@@ -40,6 +40,9 @@ namespace CaptainCoder.Audio
                 PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
             }
         }
+        
+        public int MenuTrack = 0;
+        public int VictoryTrack = 1;
 
 
         public void StartTrack(int id)
@@ -50,6 +53,13 @@ namespace CaptainCoder.Audio
             _swapQueued = true;
             _queuedAudio.clip = _tracks.Track(id);
             _queuedAudio.Play();
+        }
+
+        public void StartTrackImmediately(int id)
+        {
+            AudioClip track = _tracks.Track(id);
+            _playingAudio.clip = track;
+            _playingAudio.Play();
         }
 
         protected void Update()

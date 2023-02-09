@@ -8,7 +8,6 @@ namespace CaptainCoder.Audio
     {
         [field: SerializeField]
         private AudioClip[] Tracks { get; set; }
-
         public AudioClip Track(int ix) => Tracks[ix % Tracks.Length];
     }
 }
