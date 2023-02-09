@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,6 +18,17 @@ namespace CrazyMarble.UI
         private void Awake()
         {
             HUD._controller = this;
+        }
+
+        public void StageSelect() => StartCoroutine(LoadScene("StageSelect"));
+
+        private IEnumerator LoadScene(string scene)
+        {
+            AsyncOperation op = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+            while (!op.isDone)
+            {
+                yield return null;
+            }
         }
     }
 
@@ -43,9 +55,9 @@ namespace CrazyMarble.UI
 
         public static void StageCleared()
         {
-            _controller._stageCleared.SetActive(true);   
+            _controller._stageCleared.SetActive(true);
         }
-        
+
         public static void Initialize()
         {
             Scene hud = SceneManager.GetSceneByBuildIndex(1);

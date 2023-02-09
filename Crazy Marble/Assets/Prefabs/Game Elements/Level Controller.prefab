@@ -106,7 +106,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  <StartingTimeAmount>k__BackingField: 121
+  <StartingTimeAmount>k__BackingField: 100
 --- !u!114 &5714663336353297224
 MonoBehaviour:
   m_ObjectHideFlags: 0

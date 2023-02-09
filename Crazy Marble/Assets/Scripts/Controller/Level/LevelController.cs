@@ -43,6 +43,7 @@ namespace CrazyMarble
                 if (timeInGoal >= _goalResolveTime)
                 {
                     HUD.StageCleared();
+                    GetComponent<LevelTimer>().Pause();
                     OnLevelComplete.Invoke();
                 }
             }
