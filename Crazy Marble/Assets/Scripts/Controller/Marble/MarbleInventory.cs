@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
-
-public class MarbleInventory : MonoBehaviour
+namespace CrazyMarble
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MarbleInventory : MonoBehaviour
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        [SerializeField]
+        private List<MarbleItem> _items = new ();
+        public List<MarbleItem> Items => _items.ToList();
+        public void Add(MarbleItem item) => _items.Add(item);
+        public void Clear() => _items.Clear();
     }
 }

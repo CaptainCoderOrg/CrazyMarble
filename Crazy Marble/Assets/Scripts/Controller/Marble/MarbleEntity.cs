@@ -10,6 +10,7 @@ namespace CrazyMarble
     public class MarbleEntity : MonoBehaviour
     {
         public static MarbleEntity Instance { get; private set; }
+        private MarbleInventory _inventory;
         private Vector3 _spawnPoint;
         [SerializeField]
         private float _respawnTime = 1.44f;
@@ -63,6 +64,7 @@ namespace CrazyMarble
             child?.SetActive(true);
             yield return new WaitForFixedUpdate();
             _isDead = false;
+            _inventory.Clear();
             OnSpawn.Invoke();
         }
 
@@ -71,6 +73,7 @@ namespace CrazyMarble
             // TODO: Potentially add warning about multiple instances
             Instance = this;
             RigidBody = GetComponent<Rigidbody>();
+            _inventory = GetComponent<MarbleInventory>();
             _spawnPoint = RigidBody.position;
             Platforms.Initialize();
             OnSpawn.Invoke();
