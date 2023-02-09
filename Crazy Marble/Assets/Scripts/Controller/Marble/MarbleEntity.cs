@@ -43,6 +43,11 @@ namespace CrazyMarble
             }
         }
 
+        public void Win()
+        {
+            RigidBody.constraints = RigidbodyConstraints.FreezeAll;
+        }
+
         public void Kill()
         {
             LostCount++;
@@ -73,6 +78,7 @@ namespace CrazyMarble
         protected void Awake()
         {
             // TODO: Potentially add warning about multiple instances
+            GameObject.FindObjectOfType<LevelController>()?.OnLevelComplete.AddListener(Win);
             Instance = this;
             RigidBody = GetComponent<Rigidbody>();
             _inventory = GetComponent<MarbleInventory>();

@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/HUD.unity
     guid: dc894d3b6e8a5954bb9125421102174f
   - enabled: 1
-    path: Assets/Scenes/Levels/Tower of Bullying.unity
+    path: Assets/Scenes/Levels/02 - Tower of Bullying.unity
     guid: c806bf6add1493243aad5c7b8e040b4a
   - enabled: 1
-    path: Assets/Scenes/Levels/Stompys Bridge.unity
+    path: Assets/Scenes/Levels/03 - Stompys Bridge.unity
     guid: a1b9637a1f3016b4e8e601ad8baac103
   - enabled: 1
-    path: Assets/Scenes/Levels/Jumpys Domain.unity
+    path: Assets/Scenes/Levels/04 - Jumpys Domain.unity
     guid: 8bbe7fe37e5177f4b979ab5c59e5e6f6
   - enabled: 1
     path: Assets/Scenes/Menus/Options.unity
@@ -27,6 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/StageSelect.unity
     guid: 4733dbd749cb9ea4daa016c9dae08c8b
   - enabled: 1
-    path: Assets/Scenes/Levels/Locked Out.unity
+    path: Assets/Scenes/Levels/05 - Locked Out.unity
     guid: 25d7f1888829715418a15172b4c52d30
   m_configObjects: {}

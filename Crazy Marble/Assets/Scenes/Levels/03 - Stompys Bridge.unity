@@ -8660,7 +8660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3377964463211876801, guid: 825374e4df41c824089b02a232aac42d, type: 3}
       propertyPath: _musicTrack
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3377964463211876801, guid: 825374e4df41c824089b02a232aac42d, type: 3}
       propertyPath: <OnLevelComplete>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8898,11 +8898,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8101510197261474608, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000187227
+      value: -0.0000000187227
       objectReference: {fileID: 0}
     - target: {fileID: 8101510197261474608, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000044198294
+      value: 0.0000000044198294
       objectReference: {fileID: 0}
     - target: {fileID: 8101510198062380618, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.y
