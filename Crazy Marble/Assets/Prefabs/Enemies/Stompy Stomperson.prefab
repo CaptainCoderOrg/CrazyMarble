@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3735773130470968639}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 5514892368746317852}
   m_Layer: 0
   m_Name: Stompy Stomperson
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1009,7 +1009,7 @@ GameObject:
   - component: {fileID: 3735773131246772228}
   m_Layer: 0
   m_Name: Face1
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1192,7 +1192,7 @@ GameObject:
   - component: {fileID: 3735773132467307851}
   m_Layer: 0
   m_Name: Face2
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1378,7 +1378,7 @@ GameObject:
   - component: {fileID: 5979988811496542772}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1116
+  m_VersionIndex: 1119
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1737,7 +1737,7 @@ GameObject:
   - component: {fileID: 8204671095930574934}
   m_Layer: 0
   m_Name: SquashBox
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1771,7 +1771,7 @@ GameObject:
   - component: {fileID: 4487551848532373634}
   m_Layer: 0
   m_Name: SoundEffect
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1937,7 +1937,7 @@ GameObject:
   - component: {fileID: 174711582264031623}
   m_Layer: 0
   m_Name: Bottom Center
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

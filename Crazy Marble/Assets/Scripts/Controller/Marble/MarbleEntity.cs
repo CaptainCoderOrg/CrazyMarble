@@ -4,6 +4,8 @@ using UnityEngine.Events;
 using CaptainCoder;
 using CaptainCoder.Audio;
 using CrazyMarble.Audio;
+using CrazyMarble.UI;
+
 namespace CrazyMarble
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -75,6 +77,7 @@ namespace CrazyMarble
             RigidBody = GetComponent<Rigidbody>();
             _inventory = GetComponent<MarbleInventory>();
             _spawnPoint = RigidBody.position;
+            OnDeath.AddListener(HUD.RenderLostMarbles);
             Platforms.Initialize();
             OnSpawn.Invoke();
         }

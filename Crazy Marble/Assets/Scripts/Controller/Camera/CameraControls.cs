@@ -31,7 +31,7 @@ namespace CrazyMarble.Input
             set
             {
                 _invertXAxis = value ? 1 : 0;
-                PlayerPrefs.SetInt("InvertXAxis", _invertYAxis.Value);
+                PlayerPrefs.SetInt("InvertXAxis", _invertXAxis.Value);
             }
         }
         

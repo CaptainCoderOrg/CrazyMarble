@@ -1,3 +1,4 @@
+using CrazyMarble.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,7 +24,7 @@ namespace CrazyMarble
         public float Fuel
         {
             get => _fuel;
-            private set 
+            private set
             {
                 float newVal = Mathf.Clamp(value, 0, MaxFuel);
                 if (_fuel == newVal) { return; }
@@ -46,7 +47,8 @@ namespace CrazyMarble
             controls.UserInput.MarbleControls.Boost.canceled += (_) => StopBoost();
 
             _marbleMovement = GetComponent<MarbleMovementController>();
-            _entity = GetComponent<MarbleEntity>();            
+            _entity = GetComponent<MarbleEntity>();
+            OnChange.AddListener(HUD.RenderBoostInfo);
         }
 
         public void FixedUpdate()
@@ -70,7 +72,7 @@ namespace CrazyMarble
             }
         }
 
-        private void StartBoost() 
+        private void StartBoost()
         {
             _isBoosting = true;
             OnChange.Invoke(this);

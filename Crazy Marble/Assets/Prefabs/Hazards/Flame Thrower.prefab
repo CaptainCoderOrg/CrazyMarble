@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8628427070855432416}
   m_Layer: 0
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4827,7 +4827,7 @@ GameObject:
   - component: {fileID: 11641021732754255}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5699,7 +5699,7 @@ GameObject:
   - component: {fileID: 6490605486791457755}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5757,7 +5757,7 @@ GameObject:
   - component: {fileID: 2924601334340408460}
   m_Layer: 0
   m_Name: Flame Thrower
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

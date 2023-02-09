@@ -1,3 +1,4 @@
+using CrazyMarble.UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,11 @@ namespace CrazyMarble
         public UnityEvent OnTimesUp { get; private set; }
         [field: SerializeField]
         public UnityEvent<float> OnTimeChange { get; private set; }
+
+        public void Awake()
+        {
+            OnTimeChange.AddListener(HUD.RenderTimer);
+        }
 
         public float TimeLeft
         {

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 9014171457105633337}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 7555978804573498686}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -882,13 +882,13 @@ MonoBehaviour:
   m_Textures3: []
   m_Tangents:
   - {x: -1, y: 0, z: 0, w: -1}
-  - {x: -1, y: -0.0000001158563, z: -0.00000016118004, w: -1}
-  - {x: -1, y: -0.0000001158563, z: -0.00000016118004, w: -1}
-  - {x: -1, y: -0.0000002317126, z: -0.00000032236008, w: -1}
+  - {x: -1, y: -0.0000004818514, z: -0.000000738393, w: -1}
+  - {x: -1, y: -0.0000004818514, z: -0.000000738393, w: -1}
+  - {x: -1, y: -0.0000009637027, z: -0.0000014767859, w: -1}
   - {x: 0, y: 0, z: 1, w: -1}
-  - {x: -0.044979643, y: -0.037784245, z: 0.99827313, w: -1}
-  - {x: -0.044979643, y: -0.037784245, z: 0.99827313, w: -1}
-  - {x: -0.09211362, y: -0.07676179, z: 0.99278533, w: -1}
+  - {x: 0.0000004798138, y: 0.00000024738074, z: 1, w: -1}
+  - {x: 0.0000004798138, y: 0.00000024738074, z: 1, w: -1}
+  - {x: 0.0000009596274, y: 0.00000049476137, z: 1, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0.00000013635211, z: -0.0000002534803, w: -1}
   - {x: 1, y: 0.00000013635211, z: -0.0000002534803, w: -1}
@@ -897,9 +897,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -1, w: -1}
   - {x: 0, y: 0, z: -1, w: -1}
   - {x: 0, y: 0, z: -1, w: -1}
-  - {x: 1, y: 0.0000007152554, z: 0, w: -1}
-  - {x: 1, y: 0.00000089406933, z: 1.01643994e-20, w: -1}
-  - {x: 1, y: 0.00000089406933, z: 1.01643994e-20, w: -1}
+  - {x: 1, y: 0.0000032186497, z: 0, w: -1}
+  - {x: 1, y: 0.0000021457665, z: 0, w: -1}
+  - {x: 1, y: 0.0000021457665, z: 0, w: -1}
   - {x: 1, y: 0.0000010728833, z: 0, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
@@ -918,7 +918,7 @@ MonoBehaviour:
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
-  m_SelectedVertices: 02000000
+  m_SelectedVertices: 
 --- !u!114 &5440819523877142103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 4400153237968302128}
   m_Layer: 0
   m_Name: Pusher
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1077,7 +1077,6 @@ MonoBehaviour:
   <ExtendDistance>k__BackingField: 1
   <PauseSeconds>k__BackingField: 2
   <Speed>k__BackingField: 0.1
-  <Direction>k__BackingField: {x: 0, y: 1, z: 0}
 --- !u!1 &7417379262297173935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,7 +1088,7 @@ GameObject:
   - component: {fileID: 3311402386889996833}
   m_Layer: 0
   m_Name: Launcher
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

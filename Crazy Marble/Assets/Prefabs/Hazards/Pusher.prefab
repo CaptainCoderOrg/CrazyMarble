@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4364082315863067992}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 2978192309395505247}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1023,7 +1023,7 @@ GameObject:
   - component: {fileID: 8978186021598960977}
   m_Layer: 0
   m_Name: Pusher
-  m_TagString: Untagged
+  m_TagString: Camera Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1077,4 +1077,3 @@ MonoBehaviour:
   <ExtendDistance>k__BackingField: 2.5
   <PauseSeconds>k__BackingField: 2
   <Speed>k__BackingField: 0.5
-  <Direction>k__BackingField: {x: 0, y: 0, z: -1}

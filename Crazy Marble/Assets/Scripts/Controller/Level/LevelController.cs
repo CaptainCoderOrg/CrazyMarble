@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using CaptainCoder.Audio;
 using CrazyMarble.Input;
+using CrazyMarble.UI;
+using UnityEngine.SceneManagement;
 
 namespace CrazyMarble
 {
@@ -40,6 +42,7 @@ namespace CrazyMarble
                 float timeInGoal = Time.time - _playerEnterGoalTime;
                 if (timeInGoal >= _goalResolveTime)
                 {
+                    HUD.StageCleared();
                     OnLevelComplete.Invoke();
                 }
             }
