@@ -11,6 +11,7 @@ namespace CrazyMarble
     {
         [field: SerializeField]
         public MarbleItem Item { get; private set; }
+        private bool _isRegistered = false;
 
         private void OnTriggerEnter(Collider other) {
             if (other.attachedRigidbody == null) { return; }
@@ -18,8 +19,16 @@ namespace CrazyMarble
             if (inventory != null)
             {
                 inventory.Add(Item);
-                Destroy(gameObject);
+                MarbleEntity entity = other.attachedRigidbody.GetComponent<MarbleEntity>();
+                RegisterRespawn(entity);
+                gameObject.SetActive(false);
             }
+        }
+
+        private void RegisterRespawn(MarbleEntity entity)
+        {
+            if (_isRegistered) { return; }
+            entity.OnSpawn.AddListener(() => gameObject.SetActive(true));
         }
     }
 }
