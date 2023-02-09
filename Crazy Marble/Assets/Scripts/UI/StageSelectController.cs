@@ -16,6 +16,7 @@ namespace CrazyMarble.UI
         public void TowerOfBullying() => SceneManager.LoadScene("Tower of Bullying");
         public void StompysBridge() => SceneManager.LoadScene("Stompys Bridge");
         public void JumpysDomain() => SceneManager.LoadScene("Jumpys Domain");
+        public void LockedOut() => SceneManager.LoadScene("Locked Out");
 
     }
 }

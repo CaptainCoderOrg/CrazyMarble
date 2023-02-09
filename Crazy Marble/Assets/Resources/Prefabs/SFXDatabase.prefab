@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <LostMarble>k__BackingField: {fileID: 8300000, guid: 46073e6fca3ef9649b4935cb14831f09, type: 3}
   <PickUp>k__BackingField: {fileID: 8300000, guid: 5d1fee501f513b44488b031c1a498bac, type: 3}
+  <DoorOpen>k__BackingField: {fileID: 8300000, guid: f87f4817356603a4c9531e3ecab415a3, type: 3}

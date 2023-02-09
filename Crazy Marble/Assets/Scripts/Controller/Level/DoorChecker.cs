@@ -10,6 +10,7 @@ namespace CrazyMarble
         [SerializeField]
         private MarbleItem _key;
         private DoorController _door;
+        private bool _started = false;
 
         private void Awake() {
             _door = GetComponentInParent<DoorController>();
@@ -17,10 +18,12 @@ namespace CrazyMarble
         }
 
         private void OnTriggerEnter(Collider other) {
+            if (_started) { return; }
             if (other.attachedRigidbody == null) { return; }
             MarbleInventory inventory = other.attachedRigidbody.GetComponent<MarbleInventory>();
             if (inventory != null && inventory.Items.Contains(_key))
             {
+                _started = true;
                 _door.Open();
             }
         }
