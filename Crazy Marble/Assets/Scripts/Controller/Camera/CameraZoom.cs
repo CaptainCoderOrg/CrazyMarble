@@ -7,21 +7,22 @@ namespace CrazyMarble.Input
     public class CameraZoom : MonoBehaviour
     {
         [field: SerializeField]
-        private float _zoom = 10f;
+        private float _zoom = 40f;
         [field: SerializeField]
-        public float MinZoom { get; set; } = 10f;
+        public float MinZoom { get; set; } = 20f;
         [field: SerializeField]
-        public float MaxZoom { get; set; } = 20f;
+        public float MaxZoom { get; set; } = 80f;
         public float ZoomAmount
         {
             get => _zoom;
             set
             {
                 _zoom = Mathf.Clamp(value, MinZoom, MaxZoom);
-                for (int i = 0; i < 3; i++)
-                {
-                    FreeLookCamera.m_Orbits[i].m_Radius = _zoom;
-                }
+                FreeLookCamera.m_Lens.FieldOfView = _zoom;
+                // for (int i = 0; i < 3; i++)
+                // {
+                //     FreeLookCamera.m_Orbits[i].m_Radius = _zoom;
+                // }
             }
         }
 

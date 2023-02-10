@@ -166,17 +166,17 @@ MonoBehaviour:
   m_BindingMode: 4
   m_SplineCurvature: 0.2
   m_Orbits:
-  - m_Height: 10
-    m_Radius: 10
+  - m_Height: 15
+    m_Radius: 5
   - m_Height: 5
     m_Radius: 10
   - m_Height: 2.5
-    m_Radius: 10
+    m_Radius: 5
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
-  - {fileID: 8101510197261474611}
-  - {fileID: 8101510198091567288}
-  - {fileID: 8101510198062380621}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &8101510196611058364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <RotationSpeed>k__BackingField: 100
-  <TiltSpeed>k__BackingField: 2
+  <TiltSpeed>k__BackingField: 1
   <ZoomSpeed>k__BackingField: 20
 --- !u!114 &8101510196611058367
 MonoBehaviour:
@@ -248,9 +248,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4574f06e063873b42bcdd3ebbd17f90f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zoom: 10
-  <MinZoom>k__BackingField: 10
-  <MaxZoom>k__BackingField: 20
+  _zoom: 50
+  <MinZoom>k__BackingField: 20
+  <MaxZoom>k__BackingField: 80
 --- !u!114 &8101510196611058365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &8101510197261474610
 GameObject:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &8101510197261474608
 Transform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -777,7 +777,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8101510197261474611
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_ComponentOwner: {fileID: 8101510197095486921}
 --- !u!1 &8101510198062380620
 GameObject:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -839,7 +839,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &8101510198062380618
 Transform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -855,7 +855,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8101510198062380621
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -900,7 +900,7 @@ MonoBehaviour:
   m_ComponentOwner: {fileID: 8101510196788608582}
 --- !u!1 &8101510198091567291
 GameObject:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -917,7 +917,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &8101510198091567289
 Transform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -933,7 +933,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8101510198091567288
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

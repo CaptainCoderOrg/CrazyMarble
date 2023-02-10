@@ -52,6 +52,6 @@ namespace CrazyMarble.Input
             Cursor.visible = true;
         }
 
-        private void HandleZoom(CallbackContext context) => Zoom.ZoomAmount += System.Math.Sign(-context.ReadValue<float>());
+        private void HandleZoom(CallbackContext context) => Zoom.ZoomAmount += 3* System.Math.Sign(-context.ReadValue<float>());
     }
 }

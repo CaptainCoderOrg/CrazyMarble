@@ -31,7 +31,7 @@ namespace CaptainCoder.Audio
             SelfDestructable selfDestructable = go.AddComponent<SelfDestructable>();
             selfDestructable.SelfDestructIn(clip.length + 0.1f);
             AudioSource audioSource = go.AddComponent<AudioSource>();
-            audioSource.volume = _volume.Value;
+            audioSource.volume = Volume;
             audioSource.clip = clip;
             audioSource.Play();
         }

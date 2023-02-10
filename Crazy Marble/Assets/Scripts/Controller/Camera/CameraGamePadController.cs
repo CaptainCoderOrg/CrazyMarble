@@ -15,7 +15,7 @@ namespace CrazyMarble.Input
         [field: SerializeField]
         public float RotationSpeed { get; private set; } = 100f;
         [field: SerializeField]
-        public float TiltSpeed { get; private set; } = 10f;
+        public float TiltSpeed { get; private set; } = 3f;
         [field: SerializeField]
         public float ZoomSpeed { get; private set; } = 20f;
 
