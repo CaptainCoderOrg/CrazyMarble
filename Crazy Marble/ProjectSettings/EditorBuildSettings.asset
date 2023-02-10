@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/05 - Locked Out.unity
     guid: 25d7f1888829715418a15172b4c52d30
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial/01 - Boost.unity
+    guid: c26df476a986b2b4593911f28b8d27a9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial/00 - Basic Movement.unity
+    guid: 26fceb1cb08f476479a2d03194bfb7a3
+  - enabled: 1
+    path: Assets/Scenes/Levels/Tutorial/EZ - Aghast.unity
+    guid: 6d18d725487f3bd4692a254b7191f8d6
   m_configObjects: {}
