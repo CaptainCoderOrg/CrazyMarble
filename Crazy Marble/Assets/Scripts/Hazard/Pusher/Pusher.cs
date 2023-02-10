@@ -40,6 +40,7 @@ namespace CrazyMarble.Hazard
 
         public void FixedUpdate() {
             float progress = Mathf.Clamp01((Time.time - _startAnimationTime) / Speed);
+            if (progress >= 1) { _crusher.SetActive(false); }
             Vector3 start = _isExtending ? _retractedPosition : ExtendedPosition;
             Vector3 end = _isExtending ? ExtendedPosition : _retractedPosition;
             Vector3 position = Vector3.Lerp(start, end, progress);

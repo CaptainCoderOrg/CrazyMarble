@@ -8795,7 +8795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400153237968302128, guid: 923de7c24a7a4834c8694af96becf035, type: 3}
       propertyPath: <StartDelaySeconds>k__BackingField
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6401540426232798614, guid: 923de7c24a7a4834c8694af96becf035, type: 3}
       propertyPath: m_Mesh
