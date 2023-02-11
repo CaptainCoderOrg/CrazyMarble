@@ -11,11 +11,41 @@ public class GameCamera : MonoBehaviour
     private bool _isShaking = false;
     [SerializeField]
     private float _startYAxisTilt = 0.8f;
+    [SerializeField]
+    private int _preferredAngle = 5;
+    [SerializeField]
+    private float _correctionSpeed = 5f;
 
     public void Awake()
     {
         CurrentCamera = this;
         _cam = GetComponent<CinemachineFreeLook>();
+    }
+
+    public void Update()
+    {
+        
+        int currentAngle = (int)_cam.m_XAxis.Value;
+        if (currentAngle == 0 || currentAngle >= 179 || currentAngle <= -179) { return; }
+        int targetAngle = NearestAngle(currentAngle);
+        if (currentAngle < targetAngle)
+        {
+            _cam.m_XAxis.Value += Time.deltaTime * _correctionSpeed;
+        }
+        else if (currentAngle > targetAngle)
+        {
+            _cam.m_XAxis.Value -= Time.deltaTime * _correctionSpeed;
+        }
+
+    }
+
+    private int NearestAngle(int value)
+    {
+        if (value >= 179 || value <= -179) { return 0; }
+        return (int)System.Math.Round(
+                    (value / (double)_preferredAngle),
+                    System.MidpointRounding.AwayFromZero
+                ) * _preferredAngle;
     }
 
     public void Start()

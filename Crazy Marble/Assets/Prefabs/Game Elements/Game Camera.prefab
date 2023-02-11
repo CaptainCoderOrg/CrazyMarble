@@ -263,7 +263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3eda06e2e9677d469272b6f21035fc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startYAxisTilt: 0.8
+  _startYAxisTilt: 0.4
+  _preferredAngle: 5
+  _correctionSpeed: 15
 --- !u!1 &8101510196727567578
 GameObject:
   m_ObjectHideFlags: 0
