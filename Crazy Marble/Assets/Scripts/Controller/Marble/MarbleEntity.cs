@@ -14,6 +14,7 @@ namespace CrazyMarble
         public static MarbleEntity Instance { get; private set; }
         private MarbleInventory _inventory;
         private Vector3 _spawnPoint;
+        public Vector3 SpawnPoint { get => _spawnPoint; set => _spawnPoint = value; }
         [SerializeField]
         private float _respawnTime = 1.44f;
         [SerializeField]
