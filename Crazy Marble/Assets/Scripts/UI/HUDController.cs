@@ -60,6 +60,11 @@ namespace CrazyMarble.UI
                 yield return null;
             }
         }
+
+        private void OnDestroy() {
+            HUD._controller = null;
+            HUD._init = false;
+        }
     }
 
     public static class HUD
@@ -105,7 +110,7 @@ namespace CrazyMarble.UI
             _controller?._stageName?.SetText(name);
         }
 
-        private static bool _init = false;
+        internal static bool _init = false;
 
         public static void Initialize()
         {
