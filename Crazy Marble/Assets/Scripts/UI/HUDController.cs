@@ -26,12 +26,19 @@ namespace CrazyMarble.UI
 
         private void Awake()
         {
-            HUD._controller = this;
-            _infoTextContainer = _infoText.transform.parent.gameObject;
-            _fadeOut.gameObject.SetActive(true);
-            if (HUD._stageName != null)
+            if (HUD._controller == null)
             {
-                _stageName.SetText(HUD._stageName);
+                HUD._controller = this;
+                _infoTextContainer = _infoText.transform.parent.gameObject;
+                _fadeOut.gameObject.SetActive(true);
+                if (HUD._stageName != null)
+                {
+                    _stageName.SetText(HUD._stageName);
+                }
+            }
+            else
+            {
+                Destroy(gameObject);
             }
         }
 
@@ -86,20 +93,24 @@ namespace CrazyMarble.UI
             Debug.Assert(duration > 0);
             _controller._hideInfoTextAt = Time.time + duration;
             _controller._infoText.text = text;
-            _controller._infoTextContainer.SetActive(true);            
+            _controller._infoTextContainer.SetActive(true);
         }
 
         public static void ClearStageName() => _controller._stageName.gameObject.SetActive(false);
 
         internal static string _stageName;
-        public static void SetStageName(string name) 
+        public static void SetStageName(string name)
         {
             _stageName = name;
             _controller?._stageName?.SetText(name);
-        } 
+        }
+
+        private static bool _init = false;
 
         public static void Initialize()
         {
+            if (_init) { return; }
+            _init = true;
             Scene hud = SceneManager.GetSceneByBuildIndex(1);
             if (!hud.isLoaded) { SceneManager.LoadScene("HUD", LoadSceneMode.Additive); }
         }
