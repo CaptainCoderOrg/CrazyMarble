@@ -47,6 +47,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588d1f5d45e751e4ea5b6ea7dfc0eb3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _duration: 5
 --- !u!1 &6787726504856329416
 GameObject:
@@ -265,7 +289,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6787726506377611159}
-  m_LocalRotation: {x: 0.049282316, y: 0.8237575, z: -0.072477676, w: 0.56012666}
+  m_LocalRotation: {x: 0.049282294, y: 0.8237575, z: -0.072477646, w: 0.56012666}
   m_LocalPosition: {x: 27.20023, y: 17.123135, z: -20.328772}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
