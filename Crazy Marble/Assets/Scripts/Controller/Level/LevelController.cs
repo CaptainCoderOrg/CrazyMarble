@@ -23,6 +23,7 @@ namespace CrazyMarble
 
         public void Awake() {
             GeneralControls.Initialize();
+            HUD.Initialize();
         }
 
         public void Start()

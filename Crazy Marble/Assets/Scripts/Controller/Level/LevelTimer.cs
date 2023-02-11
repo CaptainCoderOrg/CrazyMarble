@@ -46,10 +46,10 @@ namespace CrazyMarble
             TimeLeft = StartingTimeAmount;
         }
 
-        protected void Update()
-        {
-            if (_isPaused) { return; }
-            TimeLeft -= Time.deltaTime;
-        }
+        // protected void Update()
+        // {
+        //     if (_isPaused) { return; }
+        //     // TimeLeft -= Time.deltaTime;
+        // }
     }
 }

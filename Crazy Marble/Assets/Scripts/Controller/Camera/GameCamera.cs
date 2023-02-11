@@ -9,11 +9,23 @@ public class GameCamera : MonoBehaviour
     public static GameCamera CurrentCamera { get; private set; }
     private CinemachineFreeLook _cam;
     private bool _isShaking = false;
+    [SerializeField]
+    private float _startYAxisTilt = 0.8f;
 
     public void Awake()
     {
         CurrentCamera = this;
         _cam = GetComponent<CinemachineFreeLook>();
+    }
+
+    public void Start()
+    {
+        Invoke(nameof(ForceAxis), 0.1f);
+    }
+
+    private void ForceAxis()
+    {
+        _cam.m_YAxis.Value = _startYAxisTilt;
     }
 
     public void Shake(float duration, float intensity)
