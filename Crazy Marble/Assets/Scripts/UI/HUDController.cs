@@ -17,14 +17,16 @@ namespace CrazyMarble.UI
         internal GameObject _stageCleared;
         [SerializeField]
         internal TextMeshProUGUI _infoText;
-        [SerializeField]
         internal GameObject _infoTextContainer;
         internal float _hideInfoTextAt;
+        [SerializeField]
+        internal FadeOut _fadeOut;
 
         private void Awake()
         {
             HUD._controller = this;
             _infoTextContainer = _infoText.transform.parent.gameObject;
+            _fadeOut.gameObject.SetActive(true);
         }
 
         public void Update()

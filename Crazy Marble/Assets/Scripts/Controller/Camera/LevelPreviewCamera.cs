@@ -6,7 +6,8 @@ namespace CrazyMarble
 
     public class LevelPreviewCamera : MonoBehaviour
     {
-        
+        [SerializeField]
+        private AnimationCurve _animationCurve;
         [SerializeField]
         private float _duration = 5f;
         private CinemachineVirtualCamera _cam;
@@ -34,7 +35,7 @@ namespace CrazyMarble
             {
                 _elapsed += Time.deltaTime;
             }
-            float progress = Mathf.Clamp01(_elapsed/_duration);
+            float progress = _animationCurve.Evaluate(Mathf.Clamp01(_elapsed/_duration));
             _dolly.m_PathPosition = progress;
             if (progress == 1)
             {
