@@ -1,3 +1,4 @@
+using CrazyMarble.UI;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -31,6 +32,7 @@ namespace CrazyMarble
 
         private void HandleMovement(CallbackContext context)
         {
+            HUD.ClearStageName();
             Vector2 rawInput = context.ReadValue<Vector2>();
             Quaternion cameraRotation = MainCamera.transform.rotation;
             Vector3 inputDirection = cameraRotation * new Vector3(rawInput.x, 0, rawInput.y);

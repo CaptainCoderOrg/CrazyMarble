@@ -20,6 +20,8 @@ namespace CrazyMarble.UI
         internal GameObject _infoTextContainer;
         internal float _hideInfoTextAt;
         [SerializeField]
+        internal TextFloater _stageName;
+        [SerializeField]
         internal FadeOut _fadeOut;
 
         private void Awake()
@@ -27,6 +29,10 @@ namespace CrazyMarble.UI
             HUD._controller = this;
             _infoTextContainer = _infoText.transform.parent.gameObject;
             _fadeOut.gameObject.SetActive(true);
+            if (HUD._stageName != null)
+            {
+                _stageName.SetText(HUD._stageName);
+            }
         }
 
         public void Update()
@@ -82,6 +88,15 @@ namespace CrazyMarble.UI
             _controller._infoText.text = text;
             _controller._infoTextContainer.SetActive(true);            
         }
+
+        public static void ClearStageName() => _controller._stageName.gameObject.SetActive(false);
+
+        internal static string _stageName;
+        public static void SetStageName(string name) 
+        {
+            _stageName = name;
+            _controller?._stageName?.SetText(name);
+        } 
 
         public static void Initialize()
         {

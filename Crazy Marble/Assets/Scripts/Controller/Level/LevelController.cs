@@ -11,9 +11,11 @@ namespace CrazyMarble
 {
     public class LevelController : MonoBehaviour
     {
-        
+
         [field: SerializeField]
         public UnityEvent OnLevelComplete { get; private set; }
+        [SerializeField]
+        private string _stageName;
 
         [SerializeField]
         private float _goalResolveTime = 3.0f;
@@ -25,6 +27,7 @@ namespace CrazyMarble
         public void Awake() {
             GeneralControls.Initialize();
             HUD.Initialize();
+            HUD.SetStageName(_stageName);
         }
 
         public void Start()
