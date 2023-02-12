@@ -4,10 +4,9 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace CrazyMarble
 {
-    [RequireComponent(typeof(MarbleControls), typeof(MarbleEntity))]
+    [RequireComponent(typeof(MarbleEntity))]
     public class MarbleMovementController : MonoBehaviour
     {
-        private MarbleControls _marbleController;
         private MarbleEntity _entity;
         [field: SerializeField]
         public Camera MainCamera { get; private set; }
@@ -18,10 +17,14 @@ namespace CrazyMarble
 
         protected void Awake()
         {
-            MarbleControls controls = GetComponent<MarbleControls>();
-            controls.UserInput.MarbleControls.Movement.performed += HandleMovement;
-            controls.UserInput.MarbleControls.Movement.canceled += StopMovement;
+            MarbleControls.UserInput.MarbleControls.Movement.performed += HandleMovement;
+            MarbleControls.UserInput.MarbleControls.Movement.canceled += StopMovement;
             _entity = GetComponent<MarbleEntity>();
+        }
+
+        protected void OnDestroy() {
+            MarbleControls.UserInput.MarbleControls.Movement.performed -= HandleMovement;
+            MarbleControls.UserInput.MarbleControls.Movement.canceled -= StopMovement;
         }
 
         protected void FixedUpdate()

@@ -1,10 +1,11 @@
 using CrazyMarble.UI;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace CrazyMarble
 {
-    [RequireComponent(typeof(MarbleControls), typeof(MarbleMovementController), typeof(MarbleEntity))]
+    [RequireComponent(typeof(MarbleMovementController), typeof(MarbleEntity))]
     public class MarbleBoostController : MonoBehaviour
     {
         private MarbleEntity _entity;
@@ -42,13 +43,17 @@ namespace CrazyMarble
 
         protected void Awake()
         {
-            MarbleControls controls = GetComponent<MarbleControls>();
-            controls.UserInput.MarbleControls.Boost.performed += (_) => StartBoost();
-            controls.UserInput.MarbleControls.Boost.canceled += (_) => StopBoost();
+            MarbleControls.UserInput.MarbleControls.Boost.performed += StartBoost;
+            MarbleControls.UserInput.MarbleControls.Boost.canceled += StopBoost;
 
             _marbleMovement = GetComponent<MarbleMovementController>();
             _entity = GetComponent<MarbleEntity>();
             OnChange.AddListener(HUD.RenderBoostInfo);
+        }
+
+        private void OnDestroy() {
+            MarbleControls.UserInput.MarbleControls.Boost.performed -= StartBoost;
+            MarbleControls.UserInput.MarbleControls.Boost.canceled -= StopBoost;
         }
 
         public void FixedUpdate()
@@ -72,12 +77,12 @@ namespace CrazyMarble
             }
         }
 
-        private void StartBoost()
+        private void StartBoost(CallbackContext context)
         {
             _isBoosting = true;
             OnChange.Invoke(this);
         }
-        private void StopBoost()
+        private void StopBoost(CallbackContext context)
         {
             _isBoosting = false;
             _stoppedBoostingAt = Time.time;

@@ -11,9 +11,12 @@ namespace CrazyMarble
 {
     public class LevelController : MonoBehaviour
     {
-
+        public static LevelController CurrentLevel { get; private set; }
         [field: SerializeField]
         public UnityEvent OnLevelComplete { get; private set; }
+        [field: SerializeField]
+        public UnityEvent OnLevelStart { get; private set; }
+        public bool IsStarted { get; private set; }
         [SerializeField]
         private string _stageName;
 
@@ -25,14 +28,37 @@ namespace CrazyMarble
         private bool _completed = false;
 
         public void Awake() {
+            CurrentLevel = this;
             GeneralControls.Initialize();
             HUD.Initialize();
             HUD.SetStageName(_stageName);
+            LevelPreviewCamera preview = FindObjectOfType<LevelPreviewCamera>();
+            if (preview == null)
+            {
+                StartLevel();
+            }
+            
         }
 
-        public void Start()
+        public void OnDestroy()
+        {
+            CurrentLevel = null;
+            MarbleControls.UserInput.MarbleControls.Disable();
+            MarbleControls.UserInput.CameraControls.Disable();
+        }
+
+        private void Start()
         {
             MusicController.Instance.StartTrack(_musicTrack);
+        }
+
+        public void StartLevel()
+        {
+            if (IsStarted) { return; }
+            IsStarted = true;
+            MarbleControls.UserInput.MarbleControls.Enable();
+            MarbleControls.UserInput.CameraControls.Enable();
+            OnLevelStart.Invoke();
         }
 
         public void CheckGoalTriggerStart(Collider other)

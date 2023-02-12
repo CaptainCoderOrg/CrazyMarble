@@ -312,6 +312,15 @@ namespace CrazyMarble.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""98d2feed-4051-4c72-8919-3616da34e968"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -323,6 +332,28 @@ namespace CrazyMarble.Input
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""OptionsMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""707c0133-5dc5-49c2-b577-73ebf397f3ba"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b9936a2-19f5-4d30-877e-5e13bed91a8d"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -374,6 +405,7 @@ namespace CrazyMarble.Input
             // General Controls
             m_GeneralControls = asset.FindActionMap("General Controls", throwIfNotFound: true);
             m_GeneralControls_OptionsMenu = m_GeneralControls.FindAction("OptionsMenu", throwIfNotFound: true);
+            m_GeneralControls_Skip = m_GeneralControls.FindAction("Skip", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -548,11 +580,13 @@ namespace CrazyMarble.Input
         private readonly InputActionMap m_GeneralControls;
         private IGeneralControlsActions m_GeneralControlsActionsCallbackInterface;
         private readonly InputAction m_GeneralControls_OptionsMenu;
+        private readonly InputAction m_GeneralControls_Skip;
         public struct GeneralControlsActions
         {
             private @MarbleInputs m_Wrapper;
             public GeneralControlsActions(@MarbleInputs wrapper) { m_Wrapper = wrapper; }
             public InputAction @OptionsMenu => m_Wrapper.m_GeneralControls_OptionsMenu;
+            public InputAction @Skip => m_Wrapper.m_GeneralControls_Skip;
             public InputActionMap Get() { return m_Wrapper.m_GeneralControls; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -565,6 +599,9 @@ namespace CrazyMarble.Input
                     @OptionsMenu.started -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnOptionsMenu;
                     @OptionsMenu.performed -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnOptionsMenu;
                     @OptionsMenu.canceled -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnOptionsMenu;
+                    @Skip.started -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnSkip;
+                    @Skip.performed -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnSkip;
+                    @Skip.canceled -= m_Wrapper.m_GeneralControlsActionsCallbackInterface.OnSkip;
                 }
                 m_Wrapper.m_GeneralControlsActionsCallbackInterface = instance;
                 if (instance != null)
@@ -572,6 +609,9 @@ namespace CrazyMarble.Input
                     @OptionsMenu.started += instance.OnOptionsMenu;
                     @OptionsMenu.performed += instance.OnOptionsMenu;
                     @OptionsMenu.canceled += instance.OnOptionsMenu;
+                    @Skip.started += instance.OnSkip;
+                    @Skip.performed += instance.OnSkip;
+                    @Skip.canceled += instance.OnSkip;
                 }
             }
         }
@@ -611,6 +651,7 @@ namespace CrazyMarble.Input
         public interface IGeneralControlsActions
         {
             void OnOptionsMenu(InputAction.CallbackContext context);
+            void OnSkip(InputAction.CallbackContext context);
         }
     }
 }

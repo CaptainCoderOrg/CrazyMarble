@@ -1,5 +1,6 @@
 using Cinemachine;
 using UnityEngine;
+using static UnityEngine.InputSystem.InputAction;
 
 namespace CrazyMarble
 {
@@ -21,7 +22,14 @@ namespace CrazyMarble
             Debug.Assert(_cam != null);
             _dolly = _cam.GetCinemachineComponent<CinemachineTrackedDolly>();
             Debug.Assert(_dolly != null);
+            MarbleControls.UserInput.GeneralControls.Enable();
+            MarbleControls.UserInput.GeneralControls.Skip.performed += Skip;
 
+        }
+
+        private void Skip(CallbackContext context) => gameObject.SetActive(false);
+        private void OnDisable() {
+            MarbleControls.UserInput.GeneralControls.Skip.performed -= Skip;
         }
 
         internal void Update()
@@ -40,7 +48,8 @@ namespace CrazyMarble
             if (progress == 1)
             {
                 _cam.Priority = 0;
-                gameObject.SetActive(false);
+                LevelController.CurrentLevel.StartLevel();
+                gameObject.SetActive(false);                
             }
         }
 

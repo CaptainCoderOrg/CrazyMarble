@@ -3,7 +3,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace CrazyMarble
 {
-    [RequireComponent(typeof(MarbleControls), typeof(MarbleEntity))]
+    [RequireComponent(typeof(MarbleEntity))]
     public class MarbleJumpController : MonoBehaviour
     {
         private MarbleEntity _entity;
@@ -12,9 +12,12 @@ namespace CrazyMarble
 
         protected void Awake()
         {
-            MarbleControls controls = GetComponent<MarbleControls>();
-            controls.UserInput.MarbleControls.Hop.started += TryJump;
+            MarbleControls.UserInput.MarbleControls.Hop.started += TryJump;
             _entity = GetComponent<MarbleEntity>();
+        }
+
+        private void OnDestroy() {
+            MarbleControls.UserInput.MarbleControls.Hop.started -= TryJump;
         }
 
         private void TryJump(CallbackContext context)

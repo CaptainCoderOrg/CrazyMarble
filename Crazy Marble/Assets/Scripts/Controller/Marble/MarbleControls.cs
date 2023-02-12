@@ -3,11 +3,10 @@ using CrazyMarble.Input;
 
 namespace CrazyMarble
 {
-    [RequireComponent(typeof(Rigidbody))]
-    public class MarbleControls : MonoBehaviour
+    public static class MarbleControls
     {
-        private MarbleInputs _userInput;
-        public MarbleInputs UserInput
+        private static MarbleInputs _userInput;
+        public static MarbleInputs UserInput
         {
             get
             {
@@ -19,12 +18,12 @@ namespace CrazyMarble
             }
         }
 
-        protected void OnEnable()
+        public static void OnEnable()
         {
             UserInput.Enable();
         }
 
-        protected void OnDisable()
+        public static void OnDisable()
         {
             UserInput.Disable();
         }
