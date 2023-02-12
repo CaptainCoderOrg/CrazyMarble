@@ -6,50 +6,37 @@ namespace CrazyMarble
 {
     public class LevelTimer : MonoBehaviour
     {
+        public static LevelTimer Instance { get; private set; }
         [SerializeField]
-        private float _timeLeft = 0;
-        [field: SerializeField]
-        public UnityEvent OnTimesUp { get; private set; }
+        private float _timeElapsed = 0;
         [field: SerializeField]
         public UnityEvent<float> OnTimeChange { get; private set; }
-        private bool _isPaused = false;
+        private bool _isPaused = true;
 
         public void Awake()
         {
+            Instance = this;
             OnTimeChange.AddListener(HUD.RenderTimer);
         }
 
-        public float TimeLeft
+        public float TimeElapsed
         {
-            get => Mathf.Clamp(_timeLeft, 0, 100);
+            get => _timeElapsed;
             private set
             {
-                float newVal = Mathf.Clamp(value, 0, 100);
-                if (_timeLeft == newVal) { return; }
-                _timeLeft = newVal;
-                OnTimeChange.Invoke(_timeLeft);
-                if (_timeLeft == 0)
-                {
-                    OnTimesUp.Invoke();
-                }
+                if (_timeElapsed == value) { return; }
+                _timeElapsed = value;
+                OnTimeChange.Invoke(_timeElapsed);
             }
         }
-
-        [field: SerializeField]
-        public float StartingTimeAmount { get; private set; } = 15;
 
         public void Pause() => _isPaused = true;
         public void UnPause() => _isPaused = false;
 
-        public void ResetTimer()
+        protected void Update()
         {
-            TimeLeft = StartingTimeAmount;
+            if (_isPaused) { return; }
+            TimeElapsed += Time.deltaTime;
         }
-
-        // protected void Update()
-        // {
-        //     if (_isPaused) { return; }
-        //     // TimeLeft -= Time.deltaTime;
-        // }
     }
 }

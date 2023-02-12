@@ -33,6 +33,7 @@ namespace CrazyMarble
         private void HandleMovement(CallbackContext context)
         {
             HUD.ClearStageName();
+            LevelTimer.Instance.UnPause();
             Vector2 rawInput = context.ReadValue<Vector2>();
             Quaternion cameraRotation = MainCamera.transform.rotation;
             Vector3 inputDirection = cameraRotation * new Vector3(rawInput.x, 0, rawInput.y);

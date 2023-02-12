@@ -10,7 +10,7 @@ namespace CrazyMarble.UI
         [SerializeField]
         internal BoostInfoRenderer _boostInfo;
         [SerializeField]
-        internal TimerCountdownRenderer _timerCountdown;
+        internal TimerRenderer _timerCountdown;
         [SerializeField]
         internal LostMarblesRenderer _lostMarbles;
         [SerializeField]
@@ -101,7 +101,7 @@ namespace CrazyMarble.UI
             _controller._infoTextContainer.SetActive(true);
         }
 
-        public static void ClearStageName() => _controller._stageName.gameObject.SetActive(false);
+        public static void ClearStageName() => _controller?._stageName.gameObject.SetActive(false);
 
         internal static string _stageName;
         public static void SetStageName(string name)

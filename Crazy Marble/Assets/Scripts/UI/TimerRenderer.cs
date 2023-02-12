@@ -4,7 +4,7 @@ using TMPro;
 namespace CrazyMarble.UI
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public class TimerCountdownRenderer : MonoBehaviour
+    public class TimerRenderer : MonoBehaviour
     {
         private TextMeshProUGUI _text;
 
@@ -16,7 +16,12 @@ namespace CrazyMarble.UI
         public void Render(float timeRemaining)
         {
             if (_text == null) { return; }
-            _text.text = $"{(int)timeRemaining}".PadLeft(2, '0');
+            int seconds = ((int)timeRemaining) % 60;
+            int minutes = ((int)timeRemaining)/60;
+            int millis = (int)((timeRemaining - ((int)timeRemaining))*100);
+            
+            string Format(int v) => $"{v}".PadLeft(2, '0');
+            _text.text = $"{minutes}:{Format(seconds)}:{Format(millis)}";
         }
 
         
