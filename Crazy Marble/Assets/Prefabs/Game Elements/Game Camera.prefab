@@ -250,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zoom: 8
   <MinZoom>k__BackingField: 2
-  <MaxZoom>k__BackingField: 15
+  <MaxZoom>k__BackingField: 20
 --- !u!114 &8101510196611058365
 MonoBehaviour:
   m_ObjectHideFlags: 0

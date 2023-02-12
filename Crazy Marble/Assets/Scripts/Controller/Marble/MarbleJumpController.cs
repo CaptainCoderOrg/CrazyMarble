@@ -21,9 +21,8 @@ namespace CrazyMarble
         {
             if (!_entity.IsOnGround) { return; }
             Vector3 velocity = _entity.RigidBody.velocity;
-            velocity.y = 0;
-            _entity.RigidBody.velocity = velocity;
-            _entity.RigidBody.AddForce(Vector3.up * JumpPower, ForceMode.VelocityChange);
+            float diff = Mathf.Max(0, JumpPower - _entity.RigidBody.velocity.y);
+            _entity.RigidBody.AddForce(Vector3.up * diff, ForceMode.VelocityChange);
         }
     }
 }
