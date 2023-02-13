@@ -17128,10 +17128,6 @@ PrefabInstance:
       propertyPath: _musicTrack
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 3377964463211876801, guid: 825374e4df41c824089b02a232aac42d, type: 3}
-      propertyPath: <OnLevelComplete>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3377964463211876802, guid: 825374e4df41c824089b02a232aac42d, type: 3}
       propertyPath: <OnTimesUp>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -18682,11 +18678,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8101510197261474608, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.17364812
+      value: 0.17364809
       objectReference: {fileID: 0}
     - target: {fileID: 8101510197261474608, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 3.6977488e-17
+      value: -5.8463914e-11
       objectReference: {fileID: 0}
     - target: {fileID: 8101510197261474608, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -18694,7 +18690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8101510197261474608, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -2.0971e-16
+      value: 0.0000000013109935
       objectReference: {fileID: 0}
     - target: {fileID: 8101510198062380618, guid: e212b5f386d9ea34f820045ac642874a, type: 3}
       propertyPath: m_LocalPosition.x

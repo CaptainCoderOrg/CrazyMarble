@@ -12,6 +12,7 @@ namespace CrazyMarble
         [field: SerializeField]
         public UnityEvent<float> OnTimeChange { get; private set; }
         private bool _isPaused = true;
+        public bool _isStarted = false;
 
         public void Awake()
         {
@@ -32,6 +33,16 @@ namespace CrazyMarble
 
         public void Pause() => _isPaused = true;
         public void UnPause() => _isPaused = false;
+
+        /// <summary>
+        /// Starts the timer if it has never been started before, otherwise does nothing.
+        /// </summary>
+        public void StartTimer()
+        {
+            if (_isStarted) { return; }
+            _isStarted = true;
+            UnPause();
+        }
 
         protected void Update()
         {
