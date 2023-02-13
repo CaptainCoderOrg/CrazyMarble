@@ -30,6 +30,7 @@ namespace CrazyMarble
         private void Skip(CallbackContext context) => gameObject.SetActive(false);
         private void OnDisable() {
             MarbleControls.UserInput.GeneralControls.Skip.performed -= Skip;
+            LevelController.CurrentLevel.StartLevel();
         }
 
         internal void Update()
@@ -48,7 +49,6 @@ namespace CrazyMarble
             if (progress == 1)
             {
                 _cam.Priority = 0;
-                LevelController.CurrentLevel.StartLevel();
                 gameObject.SetActive(false);                
             }
         }

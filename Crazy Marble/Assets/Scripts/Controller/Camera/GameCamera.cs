@@ -16,6 +16,8 @@ public class GameCamera : MonoBehaviour
     [SerializeField]
     private float _correctionSpeed = 5f;
 
+    public bool IsMoving { get; set; }
+
     public void Awake()
     {
         CurrentCamera = this;
@@ -24,7 +26,13 @@ public class GameCamera : MonoBehaviour
 
     public void Update()
     {
-        
+        UpdateCameraAngle();
+
+    }
+
+    private void UpdateCameraAngle()
+    {
+        if (IsMoving) { return; }
         int currentAngle = (int)_cam.m_XAxis.Value;
         if (currentAngle == 0 || currentAngle >= 179 || currentAngle <= -179) { return; }
         int targetAngle = NearestAngle(currentAngle);
@@ -36,7 +44,6 @@ public class GameCamera : MonoBehaviour
         {
             _cam.m_XAxis.Value -= Time.deltaTime * _correctionSpeed;
         }
-
     }
 
     private int NearestAngle(int value)

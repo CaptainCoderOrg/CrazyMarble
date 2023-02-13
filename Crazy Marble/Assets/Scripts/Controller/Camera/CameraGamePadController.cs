@@ -4,11 +4,12 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace CrazyMarble.Input
 {
-    [RequireComponent(typeof(CinemachineFreeLook), typeof(CameraZoom))]
+    [RequireComponent(typeof(CinemachineFreeLook), typeof(CameraZoom), typeof(GameCamera))]
     public class CameraGamePadController : MonoBehaviour
     {
         private float _zoomIn = 0;
         private float _zoomOut = 0;
+        private GameCamera _gameCamera;
         public CameraZoom CameraZoom { get; private set; }
         public CinemachineFreeLook FreeLookCamera { get; private set; }
         public Vector2 InputVector { get; private set; } = Vector2.zero;
@@ -21,8 +22,8 @@ namespace CrazyMarble.Input
 
         protected void Update()
         {
-            FreeLookCamera.m_XAxis.Value += InputVector.x * Time.deltaTime * RotationSpeed;
-            FreeLookCamera.m_YAxis.Value += InputVector.y * Time.deltaTime * TiltSpeed;
+            FreeLookCamera.m_XAxis.Value += InputVector.x * Time.deltaTime * RotationSpeed * (CameraControls.InvertXAxis ? -1 : 1);
+            FreeLookCamera.m_YAxis.Value += InputVector.y * Time.deltaTime * TiltSpeed * (CameraControls.InvertYAxis ? -1 : 1);
             CameraZoom.ZoomAmount += (_zoomIn + _zoomOut) * ZoomSpeed * Time.deltaTime;
         }
 
@@ -30,6 +31,7 @@ namespace CrazyMarble.Input
         {
             FreeLookCamera = GetComponent<CinemachineFreeLook>();
             CameraZoom = GetComponent<CameraZoom>();
+            _gameCamera = GetComponent<GameCamera>();
         }
 
         protected void OnEnable()
@@ -55,7 +57,15 @@ namespace CrazyMarble.Input
         private void StopZoomIn(CallbackContext context) => _zoomIn = 0;
         private void StartZoomOut(CallbackContext context) => _zoomOut = 1;
         private void StopZoomOut(CallbackContext context) => _zoomOut = 0;
-        private void HandleCameraRotation(CallbackContext context) => InputVector = context.ReadValue<Vector2>();
-        private void StopCameraRotation(CallbackContext context) => InputVector = Vector2.zero;
+        private void HandleCameraRotation(CallbackContext context)
+        {
+            InputVector = context.ReadValue<Vector2>();
+            _gameCamera.IsMoving = true;
+        }
+        private void StopCameraRotation(CallbackContext context)
+        {
+            InputVector = Vector2.zero;
+            _gameCamera.IsMoving = false;
+        }
     }
 }

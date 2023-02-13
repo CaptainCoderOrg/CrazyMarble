@@ -4,9 +4,10 @@ using static UnityEngine.InputSystem.InputAction;
 
 namespace CrazyMarble.Input
 {
-    [RequireComponent(typeof(CinemachineFreeLook), typeof(CameraZoom))]
+    [RequireComponent(typeof(CinemachineFreeLook), typeof(CameraZoom), typeof(GameCamera))]
     public class CameraMouseController : MonoBehaviour
     {
+        private GameCamera _gameCamera;
         public CameraZoom Zoom { get; private set; }
         public CinemachineFreeLook FreeLookCamera { get; private set; }
         public bool IsCameraMoveable { get; private set; } = false;
@@ -19,6 +20,7 @@ namespace CrazyMarble.Input
         {
             FreeLookCamera = GetComponent<CinemachineFreeLook>();
             Zoom = GetComponent<CameraZoom>();
+            _gameCamera = GetComponent<GameCamera>();
         }
 
         protected void OnEnable()
@@ -42,6 +44,7 @@ namespace CrazyMarble.Input
             FreeLookCamera.m_YAxis.m_InvertInput = CameraControls.InvertYAxis;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            _gameCamera.IsMoving = true;
         }
 
         private void DisableMouseRotation(CallbackContext context)
@@ -50,6 +53,7 @@ namespace CrazyMarble.Input
             FreeLookCamera.m_YAxis.m_MaxSpeed = 0;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            _gameCamera.IsMoving = false;
         }
 
         private void HandleZoom(CallbackContext context) => Zoom.ZoomAmount += 3* System.Math.Sign(-context.ReadValue<float>());
